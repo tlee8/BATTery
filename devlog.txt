@@ -5,7 +5,7 @@ Thomas Lee
 Tim Marder
 pd 6
 ---------------------
-The Daily Nugget
+The Daily Devo
 
 
  ______   ______   __   __   __       ______   _______
@@ -26,4 +26,14 @@ Worked on design doc:
 - Program Components
 - Site Map/Flow Chart
 - Database Schema
+==============================================================
+
+thomasL -- 2018-11-20 12:28
+--------------------------------------------------------------
+Worked on design doc:
+- Finalized name "The Daily Devo"
+- Finished database schema
+- Finished site map
+- Finished componenent descriptions
+- Finished componenent map
 ==============================================================
