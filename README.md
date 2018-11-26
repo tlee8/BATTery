@@ -1,18 +1,7 @@
-<html>
 
-<head>
-  <center>
-:battery: Team BATTery :battery:
-  </center>
+# :battery: Team BATTery :battery:
 
 ## :zap: Thomas Lee (PM), Tim Marder, Britni Canale, Ahnaf Kazi :zap:
 
-</head>
 
-<body>
-bla
-
-bla
-</body>
-
-</html>
+### * Summary *
