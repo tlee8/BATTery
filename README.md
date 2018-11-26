@@ -4,4 +4,6 @@
 ## :zap: Thomas Lee (PM), Tim Marder, Britni Canale, Ahnaf Kazi :zap:
 
 
-### * Summary *
+### :page_with_curl: *Summary* :page_with_curl:
+
+
