@@ -1,14 +1,7 @@
-# Team BATTery
+# :battery: Team BATTery :battery:
 
-## Thomas Lee (PM), Tim Marder, Britni Canale, Ahnaf Kazi
+## :zap: Thomas Lee (PM), Tim Marder, Britni Canale, Ahnaf Kazi :zap:
 
-bla bla bla bla blabla bla bla bla bla
-bla bla bla bla blabla bla bla bla blabla bla bla bla bla
-bla bla bla bla bla
-bla bla bla bla bla
-bla bla bla bla bla
-bla bla bla bla bla
-bla bla bla bla blabla bla bla bla blabla bla bla bla bla
-bla bla bla bla blabla bla bla bla bla
-bla bla bla bla blabla bla bla bla bla
-bla bla bla bla bla
+bla
+bla
+
