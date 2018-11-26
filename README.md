@@ -1,2 +1,3 @@
-# BATTery
-P# 01: ArRESTed Development
+# Team BATTery
+
+## Thomas Lee (PM), Tim Marder, Britni Canale, Ahnaf Kazi
