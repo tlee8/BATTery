@@ -47,6 +47,7 @@ Worked on design doc:
 thomasL -- 2018-11-21 12:30
 --------------------------------------------------------------
 Updated design doc:
+- Added plans to use ipapi
 - Added Logout function
 - Added article pages
 
