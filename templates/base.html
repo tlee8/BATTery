@@ -12,37 +12,46 @@
 
     <body>
 
-      <div class = "container" style = "text-align:center">
+      <nav class = "navbar navbar-inverse bg-inverse fixed-top"  style="position:relative; top:0;">
 
-        <br><h1 class = "fixed-top" style = "background-color:lightgray"> Intro to Bootstrap </h1><br><br>
+      <ul class="nav sticky-top" style = "top:50">
 
-        <nav id = "navbar"  style="background-color:gray; position:relative; top:0;">
+        <h2> {{title}} </h2>
 
-        <ul class="nav flex-md-column sticky-top" style = "top:50">
+        <li class="nav-item">
+          <a class="nav-link" href="#ThisSite">This Site</a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#ThisSite">This Site</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Buttons">Buttons</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Badges">Badges</a>
-          </li>
-    <li class="nav-item">
-            <a class="nav-link" href="#Forms">Forms</a>
-          </li>
-    <li class="nav-item">
-            <a class="nav-link" href="#Jumbotrons">Jumbotrons</a>
-          </li>
-    <li class="nav-item">
-            <a class="nav-link" href="#Pagination">Pagination</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://getbootstrap.com/docs/4.1/">Bootstrap Documentation</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#Buttons">Buttons</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Badges">Badges</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Forms">Forms</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Jumbotrons">Jumbotrons</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Pagination">Pagination</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://getbootstrap.com/docs/4.1/">Bootstrap Documentation</a>
+        </li>
+
+      </ul>
+
+      <button type = "button"> Logout </button>
+
+    </nav>
+
   </body>
+
 </html>
