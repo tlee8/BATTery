@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title> REST </title>
+  </header>
+
+  <body>
+    <h1> Current Weather in {{timezone}}</h1>
+
+    {% set msgs = get_flashed_messages() %}
+
+    {% for each in msgs %}
+
+    <p style="color:red;">{{each}} <br><br> </p>
+
+    {% endfor %}
+
+    <p>
+      Current Conditions: {{summary}} <img src={{icon}}><br>
+      Precipitation: {{precipProb}}<br>
+      Temperature: {{temp}}
+    </p>
+
+  </body>
+</html>
