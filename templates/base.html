@@ -14,44 +14,16 @@
 
       <nav class = "navbar navbar-inverse bg-inverse fixed-top"  style="position:relative; top:0;">
 
-      <ul class="nav sticky-top" style = "top:50">
+      {%block header %}
 
-        <h2> {{title}} </h2>
+      {%endblock%}
 
-        <li class="nav-item">
-          <a class="nav-link" href="#ThisSite">This Site</a>
-        </li>
+      </nav>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#Buttons">Buttons</a>
-        </li>
+      {%block body%}
 
-        <li class="nav-item">
-          <a class="nav-link" href="#Badges">Badges</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#Forms">Forms</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#Jumbotrons">Jumbotrons</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#Pagination">Pagination</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="https://getbootstrap.com/docs/4.1/">Bootstrap Documentation</a>
-        </li>
-
-      </ul>
-
-      <button type = "button"> Logout </button>
-
-    </nav>
-
+      {%endblock%}
+      
   </body>
 
 </html>

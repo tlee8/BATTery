@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+
+{%block title%} Login {%endblock%}
+
+{%block header%} <h2> BATTery </h2> {%endblock%}
+
+{%block body%}
+
+<form action="/home"  id="form"  method="POST">   <!-- creates form w\
+ith method post, used for gaining login information-->
+
+  Username: <input type="text" name="uname"><br>
+
+  Password: <input type="text" name="pword"><br>
+
+  <button  href="/home" inputtype="button" form="form" value="Login">LOGIN</button>  <!--login button-->
+
+</form>
+
+{%endblock%}
