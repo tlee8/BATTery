@@ -66,3 +66,24 @@ Updated design doc:
 
 
 ==============================================================
+
+canaleB -- 2018-11-28 11:55
+--------------------------------------------------------------
+Created functional base html:
+- Includes navbar
+- Includes heading
+- Includes logout button
+
+==============================================================
+
+canaleB -- 2018-11-28 21:38
+--------------------------------------------------------------
+Used inheritance for html & Jinja:
+- Made base.html more basic
+- Extended base.html to make home.html
+- Extended base.html to make login.html
+
+Added to app.py:
+- Added more routes for new html
+
+==============================================================
