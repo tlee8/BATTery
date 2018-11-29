@@ -87,3 +87,9 @@ Added to app.py:
 - Added more routes for new html
 
 ==============================================================
+
+kaziA -- 2018-11-29 11:57
+--------------------------------------------------------------
+- Started databases
+- Created db_builder.py, which initializes users, comments, articles, and daily databases.
+==============================================================
