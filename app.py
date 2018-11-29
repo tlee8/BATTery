@@ -10,8 +10,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    if ( (session.get('username') == "battery") &&
-         (session.get('password') == "timiscool") ):
+    if ( (session.get('username') == "battery") ):
         return render_template("home.html",
                                 user = "battery")
     else:
