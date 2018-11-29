@@ -6,7 +6,7 @@ import json, urllib
 
 
 app = Flask(__name__)
-
+app.secret_key = os.urandom(32)
 
 @app.route("/")
 def hello():
@@ -14,10 +14,18 @@ def hello():
         return render_template("home.html",
                                 user = "battery")
     else:
-        return render_template("login.html")
+        return render_template( "login.html" )
     ''' Immediately redirects to login page; users must be logged in to use
     '''
     #return redirect(url_for("login"))
+
+@app.route("/logout")
+def logout():
+    try:
+        session.pop('username')
+        return render_template("login.html")
+    except:
+        return render_template("login.html")
 
 
 @app.route("/home", methods=["POST", "GET"])
@@ -54,13 +62,6 @@ def login():
     If a user does not have an account, they may sign up for one
     '''
 
-    @app.route("/logout")
-    def logout():
-        try:
-            session.pop('username')
-            return redirect( urlfor( "hello" ) )
-        except:
-            return redirect( urlfor( "hello" ) )
     #return render_template("login.html")'''
 
 if __name__== "__main__":
