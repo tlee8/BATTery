@@ -93,3 +93,9 @@ kaziA -- 2018-11-29 11:57
 - Started databases
 - Created db_builder.py, which initializes users, comments, articles, and daily databases.
 ==============================================================
+
+leeT -- 2018-11-29 20:08
+--------------------------------------------------------------
+- Added route for News API
+- Added attribution links for Forecast.io and News API
+==============================================================
