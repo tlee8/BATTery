@@ -129,3 +129,8 @@ britniC -- 2018-11-29 22:57
   > Still need to make responsive
 - Made Logout link into button (currently not functional)
 ==============================================================
+
+britniC -- 2018-11-29 23:17
+--------------------------------------------------------------
+-Made alerts responsive by integrating with flash messages
+==============================================================
