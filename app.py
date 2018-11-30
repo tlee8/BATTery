@@ -8,7 +8,14 @@ import json, urllib
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
-badcreds = False #boolean for login creds
+badcreds = False #boolean for login creds NOT WORKING
+
+#hardcoded info for home page
+articles = ["The Cure to Cancer!", "Learn More About Dogspotting", "Your Local Superhero"]
+word = "College"
+definition = "The reason for my eternal suffering"
+weather = "Cloudy with a chance of government shutdown"
+
 
 @app.route("/")
 def hello():
@@ -43,7 +50,7 @@ def logout():
 def home():
     ''' Displays information from all APIs to logged in users
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'))
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather)
 
 @app.route("/auth", methods = ["POST"])
 def auth():

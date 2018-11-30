@@ -2,6 +2,8 @@
 
 {% block title%} Home {%endblock%}
 
+
+
 {%block header%}
 
 <ul class="nav sticky-top" style = "top:50">
@@ -9,36 +11,65 @@
   <h2> {{title}} </h2>
 
   <li class="nav-item">
-    <a class="nav-link" href="#STUFF">This Site</a>
+    <a class="nav-link" href="/mystuff">My Articles</a>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="#More STUFF">Buttons</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="#ADDITIONALLL STUD+FF">Badges</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="#EVEN MORE STUFF">Forms</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="#AHHHHHHH">Jumbotrons</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="#doge">Pagination</a>
+    <a class="nav-link" href="/popularposts">Popular Posts</a>
   </li>
 
 </ul>
 
-<!--
-    <button type = "button"> Logout </button>
--->
-    <a href = "/logout"> Logout </a>
+<form action = "/logout" method = "GET">
+
+  <button type="button" class="btn btn-outline-dark" type = "submit"> Logout </button>
+
+</form>
+
+{%endblock%}
 
 
+
+{%block alerts%}
+
+<div class="alert alert-success" role="alert">
+
+  Welcome, {{user}}. You've successfully logged in.
+
+</div>
+
+{%endblock%}
+
+
+
+{%block body%}
+
+<div class = "row">
+
+  <div class = "col-sm-12 col-md-9 col-lg-10">
+
+    {% for article in articles%}
+
+    <h5>{{article}} </h5><br><br>
+
+    {%endfor%}
+
+  </div>
+
+  <div class = "col" style = "background-color:gray">
+
+    <b> Word of the Day:</b>
+
+    {{word}} - {{definition}}
+
+    <br><br>
+
+    <b> Your Local Weather </b>
+
+    {{weather}}
+
+  </div>
+
+</div>
 
 {%endblock%}
