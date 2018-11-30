@@ -32,11 +32,13 @@
 
 {%block alerts%}
 
-<div class="alert alert-success" role="alert">
+{% set msgs = get_flashed_messages() %}
 
-  Welcome, {{user}}. You've successfully logged in.
+{% for each in msgs %}
 
-</div>
+<div class="alert alert-success" role="alert">{{each}} </div>
+
+{% endfor %}
 
 {%endblock%}
 

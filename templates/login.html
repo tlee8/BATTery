@@ -10,23 +10,23 @@ Login
 
 {%endblock%}
 
+
+
 {%block alerts%}
 
-{%if wrong %}
+{% set msgs = get_flashed_messages() %}
 
-<div class="alert alert-danger" role="alert">
+{% for each in msgs %}
 
-  Your login credentials were incorrect. If you don't have an account, create one <a href="/register" class="alert-link">here</a>.
+<div class="alert alert-danger" role="alert">{{each}} </div>
 
-</div>
-
-{%endif%}
+{% endfor %}
 
 {%endblock%}
 
-{%block body%}
 
-{{wrong}}
+
+{%block body%}
 
 <form action = "/auth" method = "POST">
 

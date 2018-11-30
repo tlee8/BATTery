@@ -8,7 +8,6 @@ import json, urllib
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
-badcreds = False #boolean for login creds NOT WORKING
 
 #hardcoded info for home page
 articles = ["The Cure to Cancer!", "Learn More About Dogspotting", "Your Local Superhero"]
@@ -35,15 +34,16 @@ def login():
     Users must log in to access website
     If a user does not have an account, they may sign up for one
     '''
-    print(badcreds)
-    return render_template("login.html", wrong = badcreds)
+    return render_template("login.html")
 
 @app.route("/logout", methods=["POST", "GET"])
 def logout():
     try:
         session.pop('username')
+        flash("You have successfully logged out")
         return redirect(url_for("login"))
     except:
+        flash("You have successfully logged out")
         return redirect(url_for("login"))
 
 @app.route("/home", methods=["POST", "GET"])
@@ -58,12 +58,10 @@ def auth():
     if ((request.form['username'] == "battery") and
         (request.form['password'] == "timiscool")):
         session['username'] = "battery"
-        badcreds = False
+        flash("Welcome " + session['username'] + "! You have successfully logged in.")
         return redirect(url_for("home"))
     else:
-        badcreds = True
-        print("noooooo")
-        print(badcreds)
+        flash("Your login credentials were incorrect.")
         return redirect(url_for("login"))
 
 
