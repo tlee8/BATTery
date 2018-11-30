@@ -94,6 +94,11 @@ kaziA -- 2018-11-29 11:57
 - Created db_builder.py, which initializes users, comments, articles, and daily databases.
 ==============================================================
 
+canaleB -- 2018-11-29 12:28
+--------------------------------------------------------------
+- Changed format of base.html to allow side space
+==============================================================
+
 leeT -- 2018-11-29 20:08
 --------------------------------------------------------------
 - Added route for News API

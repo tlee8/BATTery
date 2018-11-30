@@ -12,13 +12,25 @@
 
     <body>
 
-      <nav class = "navbar navbar-inverse bg-inverse fixed-top"  style="position:relative; top:0; background-color:lightgray">
+      <div class ="row" style =  "background-color:lightgray">
 
-      {%block header %}
+        <div class ="col"></div>
 
-      {%endblock%}
+        <div class ="col-sm-10 col-lg-8">
 
-      </nav>
+          <nav class = "navbar navbar-inverse bg-inverse fixed-top"  style="position:relative; top:0;">
+
+          {%block header %}
+
+          {%endblock%}
+
+          </nav>
+
+        </div>
+
+        <div class ="col"></div>
+
+      </div>
 
       <div class="row">
 
@@ -26,7 +38,15 @@
 
         </div>
 
-        <div class="col-sm-12 col-md-10 col-lg-8">
+        <div class=" col-sm-10 col-lg-8">
+
+          <br>
+
+          <h3> {%block page%} {%endblock%} </h3>
+
+          {%block alerts%} {%endblock%}
+
+          <br>
 
           {%block body%}
 
@@ -37,9 +57,9 @@
         <div class="col">
 
 
-        </div>
-
       </div>
+
+    </div>
 
   </body>
 
