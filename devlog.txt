@@ -104,3 +104,13 @@ leeT -- 2018-11-29 20:08
 - Added route for News API
 - Added attribution links for Forecast.io and News API
 ==============================================================
+
+canaleB -- 2018-11-29 22:57
+--------------------------------------------------------------
+- Fixed format of website to give heading sidespace
+- Added sidebar to home.html
+- Added placeholder information to home.html
+- Added alerts to home.html & login.html
+  > Still need to make responsive
+- Made Logout link into button (currently not functional)
+==============================================================
