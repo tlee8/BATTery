@@ -59,7 +59,7 @@ Updated README:
 - Included Summary of project
 
 
-kaziA -- 2018-11-27 02:25
+ahnafK -- 2018-11-27 02:25
 --------------------------------------------------------------
 Updated design doc:
 - Included seperate component map
@@ -67,7 +67,7 @@ Updated design doc:
 
 ==============================================================
 
-canaleB -- 2018-11-28 11:55
+britniC-- 2018-11-28 11:55
 --------------------------------------------------------------
 Created functional base html:
 - Includes navbar
@@ -76,7 +76,7 @@ Created functional base html:
 
 ==============================================================
 
-canaleB -- 2018-11-28 21:38
+britniC -- 2018-11-28 21:38
 --------------------------------------------------------------
 Used inheritance for html & Jinja:
 - Made base.html more basic
@@ -88,14 +88,29 @@ Added to app.py:
 
 ==============================================================
 
-kaziA -- 2018-11-29 11:57
+ahnafK -- 2018-11-29 11:57
 --------------------------------------------------------------
 - Started databases
 - Created db_builder.py, which initializes users, comments, articles, and daily databases.
 ==============================================================
 
-leeT -- 2018-11-29 20:08
+
+timM -- 2018-11-29 12:30
+--------------------------------------------------------------
+- Began working on login system
+- Made a default username and password that administrators can login with for testing.
+==============================================================
+
+thomasL -- 2018-11-29 20:08
 --------------------------------------------------------------
 - Added route for News API
 - Added attribution links for Forecast.io and News API
+==============================================================
+
+timM -- 2018-11-29 2:04
+--------------------------------------------------------------
+- Added logout
+- Added wrongcreds.html page to pop up whenever the credentials entered are wrong.
+- Fixed redirecting
+- Completed login/logout system.
 ==============================================================
