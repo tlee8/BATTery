@@ -1,7 +1,6 @@
-import json
-import urllib
-
+import json, urllib
 from flask import Flask, render_template, request, flash
+from util import newss
 
 app = Flask(__name__)
 
@@ -24,7 +23,14 @@ def root():
         icon = dict["currently"]["icon"],
         temp = dict["currently"]["temperature"],
         precipProb=dict["currently"]["precipProbability"])
-    
+
+@app.route("/news")
+def news():
+    dictionary = newss.top_headlines('bbc-news')
+    article  = dictionary['articles'][0]['content']
+    url = dictionary['articles'][0]['url']
+    link = dictionary['articles'][0]['urlToImage']
+    return render_template('news.html', content = article, url = url, link = link)
 
 if __name__ == "__main__":
     app.debug = True
