@@ -133,3 +133,13 @@ britniC -- 2018-11-29 23:17
 --------------------------------------------------------------
 -Made alerts responsive by integrating with flash messages
 ==============================================================
+
+britniC -- 2018-12-01 13:13
+--------------------------------------------------------------
+- Made footer with Copyright
+- Created logo, trying to display
+- Created register html page & route in app.py
+- Created dataaccess.py in util to get data from databases
+  > Encountering some issues with databases & tables not
+    existing, will test further
+==============================================================

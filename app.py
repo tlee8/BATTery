@@ -4,6 +4,8 @@ from flask import Flask, render_template, session, request, url_for, redirect, f
 import os
 import json, urllib
 
+from util import dataaccess
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -54,7 +56,6 @@ def home():
 
 @app.route("/auth", methods = ["POST"])
 def auth():
-
     if ((request.form['username'] == "battery") and
         (request.form['password'] == "timiscool")):
         session['username'] = "battery"
@@ -64,8 +65,22 @@ def auth():
         flash("Your login credentials were incorrect.")
         return redirect(url_for("login"))
 
+@app.route("/register", methods = ["POST", "GET"])
+def register():
+    return render_template("register.html")
 
-    #return render_template("login.html")'''
+@app.route("/regauth", methods = ["POST"])
+def regauth():
+    if not request.form['password'] == request.form['password2']:
+        flash("Your passwords do not match")
+        return redirect(url_for("register"))
+    if dataaccess.registeruser(request.form['username'], request.form['password']):
+        flash("You have successfully created an account")
+        return redirect(url_for("login"))
+    flash("The username you entered is taken.")
+    return redirect(url_for("register"))
+
+
 
 if __name__== "__main__":
     app.debug = True

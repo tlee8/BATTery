@@ -1,12 +1,9 @@
 import sqlite3 #imports sqlite
 
-DB_FILE="../data/BATT.db" 
 
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor() #facilitates db operations
 
 def users(): #creates the users db
-    command = "CREATE TABLE users(user_id INTEGER, username TEXT, password TEXT)"
+    command = "CREATE TABLE users(username TEXT, password TEXT)"
     c.execute(command)
 
 def articles(): #create the articles db
@@ -29,6 +26,6 @@ def main(): #calls all of the functions to build the databases
         daily()
     except:
         pass
-    
+
 
 main()

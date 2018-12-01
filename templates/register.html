@@ -1,34 +1,18 @@
-{%extends "base.html"%}
+{%extends "login.html"%}
 
-{%block title%} Login {%endblock%}
+{%block title%} Register {%endblock%}
 
-{%block header%}<h2>BATTery</h2>{%endblock%}
 
 {%block page%}
 
-Login
+Register
 
 {%endblock%}
-
-
-
-{%block alerts%}
-
-{% set msgs = get_flashed_messages() %}
-
-{% for each in msgs %}
-
-<div class="alert alert-danger" role="alert">{{each}} </div>
-
-{% endfor %}
-
-{%endblock%}
-
 
 
 {%block body%}
 
-<form action = "/auth" method = "POST">
+<form action = "/regauth" method = "POST">
 
   <div class="form-group">
 
@@ -46,10 +30,18 @@ Login
 
   </div>
 
-  <button type="submit" value="Submit" class="btn btn-primary">Login</button>
+  <div class="form-group">
+
+    <label for="exampleInputPassword1">Confirm Password</label>
+
+    <input type="password" name="password2" class="form-control" id="exampleInputPassword2" placeholder="Enter password" style="width: 300px">
+
+  </div>
+
+  <button type="submit" value="Submit" class="btn btn-primary">Register</button>
 
 </form>
 
-Don't have an account? Create one <a href = "/register">here</a>.
+Already have an account? Log in <a href = "/login">here</a>.
 
 {%endblock%}
