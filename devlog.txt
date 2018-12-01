@@ -111,7 +111,6 @@ timM -- 2018-11-29 2:04
 - Added wrongcreds.html page to pop up whenever the credentials entered are wrong.
 - Fixed redirecting
 - Completed login/logout system.
->>>>>>> b4fb49dd9373ac000175cd92905540b33c4b50d5
 ==============================================================
 
 thomasL -- 2018-11-29 20:08
