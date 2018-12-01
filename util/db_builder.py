@@ -1,5 +1,9 @@
 import sqlite3 #imports sqlite
 
+DB_FILE="../data/BATT.db"
+
+db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
+c = db.cursor() #facilitates db operations
 
 
 def users(): #creates the users db
