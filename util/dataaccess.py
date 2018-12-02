@@ -19,3 +19,13 @@ def registeruser(user, pwd):
     db.commit() #save changes
     db.close()  #close database
     return True
+
+def loginuser(user, pwd):
+    DB_FILE="data/BATT.db"
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    command = "SELECT username, password FROM users WHERE username = ? AND password = ?"
+    params = (user, pwd)
+    c.execute(command, params)
+    rows = c.fetchone()
+    return rows

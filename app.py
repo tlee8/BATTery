@@ -56,9 +56,8 @@ def home():
 
 @app.route("/auth", methods = ["POST"])
 def auth():
-    if ((request.form['username'] == "battery") and
-        (request.form['password'] == "timiscool")):
-        session['username'] = "battery"
+    if  dataaccess.loginuser(request.form['username'], request.form['password']):
+        session['username'] = request.form['username']
         flash("Welcome " + session['username'] + "! You have successfully logged in.")
         return redirect(url_for("home"))
     else:
