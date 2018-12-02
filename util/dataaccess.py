@@ -14,8 +14,8 @@ def registeruser(user, pwd):
     rows = c.fetchone()
     if rows:
         return False;
-    params = (user, pwd, 2)
-    c.execute("INSERT INTO users VALUES (?,?,?)", params)
+    params = (user, pwd)
+    c.execute("INSERT INTO users VALUES (?,?)", params)
     db.commit() #save changes
     db.close()  #close database
     return True
