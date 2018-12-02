@@ -1,0 +1,31 @@
+{%extends "home.html"%}
+
+
+
+{% block title%} Popular Posts {%endblock%}
+
+
+
+{%block alerts%}
+
+{% set msgs = get_flashed_messages() %}
+
+{% for each in msgs %}
+
+<div class="alert alert-success" role="alert">{{each}} </div>
+
+{% endfor %}
+
+{%endblock%}
+
+
+
+{%block body%}
+
+{% for article in poparticles %}
+
+<h4>{{article}} </h4><br><br>
+
+{% endfor %}
+
+{%endblock%}

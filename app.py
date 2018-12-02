@@ -79,6 +79,14 @@ def regauth():
     flash("The username you entered is taken.")
     return redirect(url_for("register"))
 
+@app.route("/popularposts")
+def popposts():
+    return render_template("popularposts.html")
+
+@app.route("/mystuff")
+def mystuff():
+    return render_template("mystuff.html")
+
 
 
 if __name__== "__main__":

@@ -143,3 +143,11 @@ britniC -- 2018-12-01 13:13
   > Encountering some issues with databases & tables not
     existing, will test further
 ==============================================================
+
+britniC -- 2018-12-02 15:15
+--------------------------------------------------------------
+- Made functional register
+- Made functional login
+- Fixed logout button, currently works
+- Made popular posts and my stuff pages
+==============================================================
