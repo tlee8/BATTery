@@ -8,15 +8,36 @@
 
 <ul class="nav sticky-top" style = "top:50">
 
-  <h2> {{title}} </h2>
+  <a href = "/home"><h2>The Daily Devo</h2></a>
+
+  {%if myart%}
+
+  <li class="nav-item">
+    <a class="nav-link" href="/mystuff"><b>My Articles</b></a>
+  </li>
+
+  {%else%}
 
   <li class="nav-item">
     <a class="nav-link" href="/mystuff">My Articles</a>
   </li>
 
+  {%endif%}
+
+
+  {%if popposts%}
+
+  <li class="nav-item">
+    <a class="nav-link" href="/popularposts"><b>Popular Posts</b></a>
+  </li>
+
+  {%else%}
+
   <li class="nav-item">
     <a class="nav-link" href="/popularposts">Popular Posts</a>
   </li>
+
+  {%endif%}
 
 </ul>
 
@@ -53,7 +74,7 @@
 
     <h5>{{article[0]}} </h5>
     <p>{{article[1]}}</p><br><br>
-    
+
 
     {%endfor%}
 

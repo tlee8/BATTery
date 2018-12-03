@@ -17,7 +17,7 @@ articles = []
 descriptions = {}
 for i in range(10):
     articles.append([news['articles'][i]['title'], news['articles'][i]['description']])
-        
+
 word = "College"
 definition = "The reason for my eternal suffering"
 weather = apeye.weather()["currently"]["summary"]
@@ -87,11 +87,11 @@ def regauth():
 
 @app.route("/popularposts")
 def popposts():
-    return render_template("popularposts.html")
+    return render_template("popularposts.html", popposts = True)
 
 @app.route("/mystuff")
 def mystuff():
-    return render_template("mystuff.html")
+    return render_template("mystuff.html", myart = True)
 
 
 

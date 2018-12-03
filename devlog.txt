@@ -164,3 +164,8 @@ thomasL -- 2018-12-02 20:40
 --------------------------------------------------------------
 - Added requirements.txt
 ==============================================================
+
+britniC -- 2018-12-03 12:33
+
+- Made"active" states for menu
+- Made web title a link back to home
