@@ -151,3 +151,11 @@ britniC -- 2018-12-02 15:15
 - Fixed logout button, currently works
 - Made popular posts and my stuff pages
 ==============================================================
+
+thomasL -- 2018-12-02 20:35
+--------------------------------------------------------------
+- Moved API stuff to util
+- Updated API integration in home page
+  > added weather and temperature to side bar
+  > homepage displays ten articles and their descriptions
+==============================================================

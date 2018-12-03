@@ -4,7 +4,7 @@ from flask import Flask, render_template, session, request, url_for, redirect, f
 import os
 import json, urllib
 
-from util import dataaccess
+from util import dataaccess, apeye
 
 
 app = Flask(__name__)
@@ -12,10 +12,16 @@ app.secret_key = os.urandom(32)
 
 
 #hardcoded info for home page
-articles = ["The Cure to Cancer!", "Learn More About Dogspotting", "Your Local Superhero"]
+news =  apeye.news()
+articles = []
+descriptions = {}
+for i in range(10):
+    articles.append([news['articles'][i]['title'], news['articles'][i]['description']])
+        
 word = "College"
 definition = "The reason for my eternal suffering"
-weather = "Cloudy with a chance of government shutdown"
+weather = apeye.weather()["currently"]["summary"]
+temperature = apeye.weather()["currently"]["temperature"]
 
 
 @app.route("/")
@@ -52,7 +58,7 @@ def logout():
 def home():
     ''' Displays information from all APIs to logged in users
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather)
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, descriptions = descriptions, word = word, definition = definition, weather = weather, temperature = temperature)
 
 @app.route("/auth", methods = ["POST"])
 def auth():
