@@ -17,7 +17,7 @@ articles = []
 descriptions = {}
 for i in range(10):
     articles.append([news['articles'][i]['title'], news['articles'][i]['description']])
-        
+
 word = "College"
 definition = "The reason for my eternal suffering"
 weather = apeye.weather()["currently"]["summary"]
