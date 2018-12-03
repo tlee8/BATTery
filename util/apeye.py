@@ -23,4 +23,3 @@ def news():
     response = urllib.request.urlopen(url).read()
     newsDict = json.loads(response)
     return newsDict
-    
