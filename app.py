@@ -16,10 +16,9 @@ app.secret_key = os.urandom(32)
 
 #hardcoded info for home page
 news =  apeye.news()
-articles = []
-descriptions = {}
+articles = {}
 for i in range(10):
-    articles.append([news['articles'][i]['title'], news['articles'][i]['description']])
+    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'],news['articles'][i]['content'], i, i+1]
 
 word = "College"
 definition = "The reason for my eternal suffering"
@@ -61,7 +60,11 @@ def logout():
 def home():
     ''' Displays information from all APIs to logged in users
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, descriptions = descriptions, word = word, definition = definition, weather = weather, temperature = temperature)
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+
+@app.route("/article", methods=["POST", "GET"])
+def article():
+    return render_template("article.html", articles = articles)
 
 @app.route("/auth", methods = ["POST"])
 def auth():

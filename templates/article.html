@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} {{articles[i][0]}} {% endblock %}
+
+
+{% block body %}
+
+<div class = "row">
+
+  <div class = "col-sm-12 col-md-9 col-lg-10">
+
+    <h1> {{articles[i][0]}} </h1>
+    <br><br>
+
+    <h5>{{article[0]}} </h5>
+    <p>{{article[1]}}</p><br><br>
+    
+
+    {%endfor%}
+
+  </div>
+
+</div>
+
+{% endblock %}
