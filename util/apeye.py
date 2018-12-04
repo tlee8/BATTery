@@ -1,5 +1,8 @@
 import json, urllib
 
+def reader(url):
+    
+
 def weather():
     url = "https://ipapi.co/json/"
     f = urllib.request.urlopen(url).read()
@@ -23,3 +26,8 @@ def news():
     response = urllib.request.urlopen(url).read()
     newsDict = json.loads(response)
     return newsDict
+
+def word():
+    key = "d9878c3e-8acf-4e8c-b9b0-cf3d24927177"
+    url = "https://www.dictionaryapi.com/api/v3/references/sd4/json/[word]?key=" + key
+    response = urllib.request.urlopen(url).read()

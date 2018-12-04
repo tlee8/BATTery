@@ -18,7 +18,7 @@ app.secret_key = os.urandom(32)
 news =  apeye.news()
 articles = {}
 for i in range(10):
-    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'],news['articles'][i]['content'], i, i+1]
+    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'],news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
 
 word = "College"
 definition = "The reason for my eternal suffering"
