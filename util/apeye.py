@@ -1,7 +1,6 @@
 import json, urllib
 
-def reader(url):
-    
+
 
 def weather():
     url = "https://ipapi.co/json/"
