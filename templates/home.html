@@ -72,8 +72,8 @@
 
     {% for article in articles%}
 
-    <h5>{{article[0]}} </h5>
-    <p>{{article[1]}}</p><br><br>
+    <h5>{{articles[article][4]}}. {{articles[article][0]}}</h5>
+    <p>{{articles[article][1]}}</p><br><br>
 
 
     {%endfor%}
