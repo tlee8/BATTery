@@ -1,6 +1,7 @@
 #BATTery
 
 import sqlite3
+from datetime import date
 from util import db_builder
 
 db_builder.main()
@@ -29,3 +30,22 @@ def loginuser(user, pwd):
     c.execute(command, params)
     rows = c.fetchone()
     return rows
+
+def saveday(cat, dog, meme, recipe, date_fact, word, weather):
+        date = date.today().isoformat()
+        params = (date, cat, dog, meme, recipe, date_fact, word, weather)
+        c.execute("INSERT INTO users VALUES (?,?,?,?,?,?,?,?)", params)
+        db.commit() #save changes
+        db.close()  #close database
+    
+def newday(date):
+    DB_FILE = "data/BATT.db"
+    date = date.today().isoformat()
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    command = "SELECT date FROM daily WHERE date = {0}".format(date)
+    c.execute(command)
+    if rows:
+        return False
+    else:
+        return True
