@@ -19,7 +19,7 @@ def comments(): #creates the comments db
     c.execute(command)
 
 def daily(): #creates the daily db
-    command = "CREATE TABLE daily(date INTEGER, cat TEXT, dog TEXT, meme TEXT, recipe TEXT, date_fact TEXT, word TEXT, weather TEXT)"
+    command = "CREATE TABLE daily(date TEXT, cat TEXT, dog TEXT, meme TEXT, recipe TEXT, date_fact TEXT, word TEXT, weather TEXT)"
     c.execute(command)
 
 def main(): #calls all of the functions to build the databases
