@@ -1,6 +1,10 @@
 import json, urllib
 
+with open("data/keys.json") as APIkeys:
+    keys = json.loads(APIkeys.read())
 
+newsKey = keys["newsKey"]
+wordKey = keys["wordKey"]
 
 def weather():
     url = "https://ipapi.co/json/"
@@ -17,16 +21,25 @@ def weather():
     return weatherDict
 
 def news():
-    API_KEY = "2ed9d542b2084d9181d7df321aae80b5"
     src = 'bbc-news'
     url = ('https://newsapi.org/v2/top-headlines?'
        'sources=' + src + '&'
-       'apiKey=' + API_KEY)
+           'apiKey=' + newsKey)
     response = urllib.request.urlopen(url).read()
     newsDict = json.loads(response)
     return newsDict
 
 def word():
-    key = "d9878c3e-8acf-4e8c-b9b0-cf3d24927177"
-    url = "https://www.dictionaryapi.com/api/v3/references/sd4/json/[word]?key=" + key
-    response = urllib.request.urlopen(url).read()
+    URL = 'https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=' + wordKey
+    x = urllib.request.urlopen(URL)
+    str = x.read()
+    list = json.loads(str)
+    list = list[2:]
+    words = []
+    defs = []
+
+    for d in list:
+        words.append(d["hwi"]["hw"])
+        defs.append(d["def"][0]["sseq"][0][0][1]["dt"][0][1].strip("{bc}a_link|"))
+
+    return words, defs

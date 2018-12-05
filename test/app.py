@@ -32,6 +32,19 @@ def news():
     link = dictionary['articles'][0]['urlToImage']
     return render_template('news.html', content = article, url = url, link = link)
 
+PRE = 'https://dictionaryapi.com/api/v3/references/collegiate/json/test?key='
+KEY = 'd9878c3e-8acf-4e8c-b9b0-cf3d24927177'
+URL = PRE + KEY
+
+@app.route('/word')
+def display():
+    x = urllib.request.urlopen(URL)
+    str = x.read()
+    list = json.loads(str)
+    list = list[2:]
+    return render_template('demo.html', l = list)
+
+
 if __name__ == "__main__":
     app.debug = True
 app.run()

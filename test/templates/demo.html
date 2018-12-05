@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>merriam webster demo</title>
+  </head>
+  <body>
+    <h2>Sample Metadata:</h2>
+    {% for d in l %}
+    {{d["hwi"]["hw"]}}<br>
+    {{d["def"][0]["sseq"][0][0][1]["dt"][0][1].strip("{bc}a_link|")}}
+    <br><br>
+    {% endfor %}
+  </body>
+</html>

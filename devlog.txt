@@ -191,3 +191,10 @@ thomasL -- 2018-12-04 12:23
 - Updated articles dictionary with images
 - Added images to home page
 ==============================================================
+
+thomasL -- 2018-12-04 21:13
+--------------------------------------------------------------
+- Got Merriam Webster API working
+- Moved Keys to json file
+- Adjusted api file to work with json file
+=============================================================

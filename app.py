@@ -1,7 +1,7 @@
 
 
 from flask import Flask, render_template, session, request, url_for, redirect, flash
-import json, urllib
+import json, urllib, random
 import os, ssl
 if (not os.environ.get('PYTHONHTTPSVERIFY', '') and
     getattr(ssl, '_create_unverified_context', None)):
@@ -18,13 +18,17 @@ app.secret_key = os.urandom(32)
 news =  apeye.news()
 articles = {}
 for i in range(10):
-    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'],news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
+    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
 
-word = "College"
-definition = "The reason for my eternal suffering"
+#word = "College"
+#definition = "The reason for my eternal suffering"
 weather = apeye.weather()["currently"]["summary"]
 temperature = apeye.weather()["currently"]["temperature"]
 
+words, defs = apeye.word()
+x = random.randint(1, len(words)) - 1
+word = words[x]
+definition = defs[x]
 
 @app.route("/")
 def hello():
