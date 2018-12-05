@@ -103,7 +103,9 @@ def popposts():
 def mystuff():
     return render_template("mystuff.html", myart = True)
 
-
+@app.route("/preferences")
+def preferences():
+    return render_template("preferences.html", pref = True)
 
 if __name__== "__main__":
     app.debug = True

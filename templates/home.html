@@ -39,6 +39,21 @@
 
   {%endif%}
 
+
+  {%if pref%}
+
+  <li class="nav-item">
+    <a class="nav-link" style = "color:black" href="/preferences"><b>Preferences</b></a>
+  </li>
+
+  {%else%}
+
+  <li class="nav-item">
+    <a class="nav-link" style = "color:black"  href="/preferences">Preferences</a>
+  </li>
+
+  {%endif%}
+
 </ul>
 
 <a class="btn btn-secondary" role = "button" href="/logout"> Logout </a>
