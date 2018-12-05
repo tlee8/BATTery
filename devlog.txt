@@ -192,6 +192,13 @@ thomasL -- 2018-12-04 12:23
 - Added images to home page
 ==============================================================
 
+timM -- 2018-12-04 12:29
+--------------------------------------------------------------
+- Uploaded new logo to get a new link
+- Fixed problem with stretching footer bar.
+- Made footer bar unfixed and fixed dimensions for a better visual.
+==============================================================
+
 ahnafK -- 2018-12-04 12:36
 --------------------------------------------------------------
 - created function to check if daily needs updating
