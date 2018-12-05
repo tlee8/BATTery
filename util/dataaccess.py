@@ -2,7 +2,7 @@
 
 import sqlite3
 from datetime import date
-from util import db_builder
+from util import db_builder, apeye
 
 db_builder.main()
 
@@ -31,14 +31,14 @@ def loginuser(user, pwd):
     rows = c.fetchone()
     return rows
 
-def saveday(cat, dog, meme, recipe, date_fact, word, weather):
+def saveday(cat, dog, recipe, word, defi, weather, temperature):
         date = date.today().isoformat()
-        params = (date, cat, dog, meme, recipe, date_fact, word, weather)
+        params = (date, cat, dog, recipe, word, defi, weather, temperature)
         c.execute("INSERT INTO users VALUES (?,?,?,?,?,?,?,?)", params)
         db.commit() #save changes
         db.close()  #close database
     
-def newday(date):
+def newday():
     DB_FILE = "data/BATT.db"
     date = date.today().isoformat()
     db = sqlite3.connect(DB_FILE)
@@ -49,3 +49,13 @@ def newday(date):
         return False
     else:
         return True
+
+def update():
+    if newday:
+        weather = apeye.weather()["currently"]["summary"]
+        temperature = apeye.weather()["currently"]["temperature"]
+        words, defs = apeye.word()
+        x = random.randint(1, len(words)) - 1
+        word = words[x]
+        definition = defs[x]
+        saveday("","","",word,definition,)
