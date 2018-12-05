@@ -192,6 +192,12 @@ thomasL -- 2018-12-04 12:23
 - Added images to home page
 ==============================================================
 
+ahnafK -- 2018-12-04 12:36
+--------------------------------------------------------------
+- created function to check if daily needs updating
+- created function that adds an entry to daily
+
+
 thomasL -- 2018-12-04 21:13
 --------------------------------------------------------------
 - Got Merriam Webster API working
