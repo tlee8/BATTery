@@ -97,11 +97,11 @@ def regauth():
 
 @app.route("/popularposts")
 def popposts():
-    return render_template("popularposts.html", popposts = True)
+    return render_template("popularposts.html", popposts = True, title = "Popular Posts", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
 
 @app.route("/mystuff")
 def mystuff():
-    return render_template("mystuff.html", myart = True)
+    return render_template("mystuff.html", myarticles = True, title = "My Articles", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
 
 
 

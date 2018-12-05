@@ -1,25 +1,12 @@
-{%extends "home.html"%}
+{% extends "home.html" %}
 
 
 
-{% block title%} My Articles {%endblock%}
+{% block title%} {{ title }} {%endblock%}
 
 
 
-{%block alerts%}
-
-{% set msgs = get_flashed_messages() %}
-
-{% for each in msgs %}
-
-<div class="alert alert-success" role="alert">{{each}} </div>
-
-{% endfor %}
-
-{%endblock%}
-
-
-
+<!--
 {%block body%}
 
 {% for article in poparticles %}
@@ -29,3 +16,4 @@
 {% endfor %}
 
 {%endblock%}
+-->
