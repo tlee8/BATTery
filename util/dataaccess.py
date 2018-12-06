@@ -62,24 +62,52 @@ def update():
         definition = defs[x]
         saveday("","","",word,definition,)
 '''
-def setPrefs(user,sources,dailies):
+def setPref(user,text,types):
     DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    params = (user,sources,dailies)
+    params = (user,text,types)
     command = "INSERT INTO pref VALUES (?,?,?)"
     c.execute(command,params)
     db.commit()#save changes
     db.close()  #close database
     return True
 
+def setPref(user, sources, dailies):
+    DB_FILE = "data/BATT.db"
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    command = "DELETE * FROM pref"
+    for sors in sources:
+        
+
 def getPrefs(user):
     DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
+    
+    command = "SELECT * FROM pref WHERE user = '{0}' ".format(user)
+    c.execute(command)
+    if !(c.fetchone()):
+        setPref(user,"ABC News", "source")
+        setPref(user,"Ars Technica", "source")
+        setPref(user,"BBC News", "source")
+        setPref(user,"Business Insider", "source")
+        setPref(user,"Buzzfeed", "source")
+        setPref(user,"El Mundo", "source")
+        setPref(user,"National Geographic
+", "source")
+        setPref(user,"New York Times", "source")
+        setPref(user,"Wall Street Journal", "source")
+        setPref(user,"National Geographic", "source")
+        setPref(user,"CBS News", "source")
+        setPref(user,"Word of the Day", "daily")
+        setPref(user,"Weather", "daily")
+        setPref(user,"Date Fact", "daily")
+        
     command = "SELECT source FROM pref WHERE user = '{0}'".format(user)
     c.execute(command)
-    sources= []
+    sources = []
     for row in c.fetchall():
         sources.append(row[0])
     command = "SELECT daily FROM pref WHERE user = '{0}'".format(user)

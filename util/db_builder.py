@@ -23,7 +23,8 @@ def daily(): #creates the daily db
     c.execute(command)
 
 def pref(): #creates the pref db
-    command = "CREATE TABLE pref(user TEXT, source TEXT, daily TEXT)"
+#    command = "CREATE TABLE pref(user TEXT, source TEXT, daily TEXT)"
+    command = "CREATE TABLE pref(user TEXT, preffered TEXT, type ENUM ('source', 'daily'))"
     c.execute(command)
 
     
