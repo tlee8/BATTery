@@ -107,7 +107,6 @@ def popposts():
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
-<<<<<<< HEAD
     if "username" not in session:
         return redirect(url_for("login"))
     title = request.args["title"]
@@ -115,10 +114,6 @@ def article():
     for article in articles:
         if title == articles[article][0]:
             print(article)
-=======
-    for article in articles:
-        if articles[article][0] == request.args["title"]:
->>>>>>> 00f920b3b773e48b8b594e14c57ec8861ed58cae
             return render_template("article.html", article = articles[article])
 
 @app.route("/auth", methods = ["POST"])

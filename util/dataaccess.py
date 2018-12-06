@@ -77,26 +77,38 @@ def setPref(user, sources, dailies):
     DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "DELETE * FROM pref"
-    for sors in sources:
-        
+    command = "DELETE * FROM pref where user = '{0}'".format(user)
+    c.execute(command)
+    for source in sources:
+        setPref(user, source, "source")
+    for daily in dailies:
+        setPref(user, daily, "daily")
+    c.execute(command,params)
+    db.commit()#save changes
+    db.close()  #close database
+    return True
+
 
 def getPrefs(user):
     DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    
+
     command = "SELECT * FROM pref WHERE user = '{0}' ".format(user)
     c.execute(command)
     if !(c.fetchone()):
+        #sources = ['ars-technica', 'abc-news', 'bbc-news', 'business-insider','buzzfeed', 'cbs-news', 'el-mundo', 'the-new-york-times', 'national-geographic', 'the-wall-street-journal', 'the-washington-post']
+        #dailies = ['Word', 'Date', 'Cat', 'Dog', 'Weather']
+
+        #setPref(user, sources, dailies)
+
         setPref(user,"ABC News", "source")
         setPref(user,"Ars Technica", "source")
         setPref(user,"BBC News", "source")
         setPref(user,"Business Insider", "source")
         setPref(user,"Buzzfeed", "source")
         setPref(user,"El Mundo", "source")
-        setPref(user,"National Geographic
-", "source")
+        setPref(user,"National Geographic", "source")
         setPref(user,"New York Times", "source")
         setPref(user,"Wall Street Journal", "source")
         setPref(user,"National Geographic", "source")
@@ -104,7 +116,7 @@ def getPrefs(user):
         setPref(user,"Word of the Day", "daily")
         setPref(user,"Weather", "daily")
         setPref(user,"Date Fact", "daily")
-        
+
     command = "SELECT source FROM pref WHERE user = '{0}'".format(user)
     c.execute(command)
     sources = []
