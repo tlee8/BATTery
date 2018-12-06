@@ -134,8 +134,6 @@ def regauth():
     flash("The username you entered is taken.")
     return redirect(url_for("register"))
 
-@app.route("/popularposts")
-
 @app.route("/mystuff")
 def mystuff():
     return render_template("mystuff.html", myarticles = True, title = "My Articles", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
