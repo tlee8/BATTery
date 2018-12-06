@@ -96,16 +96,34 @@
 
     {% for article in articles%}
 
-
     <div class="d-flex bd-highlight">
 
       <div class="p-2 bd-highlight">
-
-        <img src = {{articles[article][3]}} style = "width:200">
-
+        <img src = {{articles[article][3]}} style = "height:100">
       </div>
 
       <div class="p-2 flex-grow-1 bd-highlight">
+
+            <h5>{{articles[article][5]}}. <a href = "/article?title={{articles[article][0]}}" style = "color:black">{{articles[article][0]}}</a></h5>
+
+            <p>{{articles[article][1]}}</p>
+
+            <br><br>
+      </div>
+    </div>
+
+<!--
+    <div class = "row">
+
+    <div class = "col-sm-12 col-md-4 col-lg-3">
+
+      <img src = {{articles[article][3]}} style = "height:100">
+
+    </div>
+
+    <div class = "col-sm-12 col-md-8 col-lg-9">
+
+    <h5>{{articles[article][6]}}. <a href = "/article?title={{articles[article][0]}}" style = "color:black">{{articles[article][0]}}</a></h5>
 
         <h5>{{articles[article][5]}}. <a href = "/article?title={{articles[article][0]}}" style = "color:black">{{articles[article][0]}}</a></h5>
 
@@ -138,6 +156,8 @@
 
     </div> -->
 
+-->
+
     {%endfor%}
 
 
@@ -147,6 +167,13 @@
   <div class = "col" style = "background-color:#5299D3">
 
     <br>
+<<<<<<< HEAD
+=======
+
+    <h5>Daily Bits</h5><br>
+
+    <b> Word of the Day:</b><br>
+>>>>>>> 00f920b3b773e48b8b594e14c57ec8861ed58cae
 
     <h4> Daily Bits </h4>
 
@@ -154,6 +181,7 @@
 
     <b> Word of the Day:</b><br>
 
+<<<<<<< HEAD
     <b>{{word}}</b> - {{definition}}
 
     <br><br>
@@ -161,21 +189,29 @@
     <b> Your Local Weather: </b><br>
 
     It is currently {{weather}} and {{temperature}}&#8457.
+=======
+    It is currently {{weather}} and {{temperature}}&#8457;.
+
+>>>>>>> 00f920b3b773e48b8b594e14c57ec8861ed58cae
 
     <br><br>
 
-    <b> Date Fact </b>
+    <b> Date Fact </b><br>
     {{s}}
 
     <br><br>
 
     <b> Dog Pic of the Day </b><br>
-    <img src = {{dogPic}} width="120">
+    <div class = "row">
+      <img src = {{dogPic}} width = "80%">
+    </div>
 
     <br><br>
 
     <b> Cat Pic of the Day </b><br>
-    <img src = {{catPic}} width="120">
+    <div class = "row">
+      <img src = {{catPic}} width = "80%">
+    </div>
 
   </div>
 

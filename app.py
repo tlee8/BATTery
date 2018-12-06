@@ -69,7 +69,7 @@ def logout():
 news =  apeye.news()
 articles = {}
 for i in range(10):
-    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
+    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], news['articles'][i]['url'], i, i+1]
 
 @app.route("/home", methods=["POST", "GET"])
 def home():
@@ -95,7 +95,7 @@ def home():
         s = apeye.number()
 
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature, s = s, dogPic = dogPic, catPic = catPic)
 
 @app.route("/myarticles", methods = ["POST", "GET"])
 def myarticles():
@@ -107,6 +107,7 @@ def popposts():
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
+<<<<<<< HEAD
     if "username" not in session:
         return redirect(url_for("login"))
     title = request.args["title"]
@@ -114,6 +115,10 @@ def article():
     for article in articles:
         if title == articles[article][0]:
             print(article)
+=======
+    for article in articles:
+        if articles[article][0] == request.args["title"]:
+>>>>>>> 00f920b3b773e48b8b594e14c57ec8861ed58cae
             return render_template("article.html", article = articles[article])
 
 @app.route("/auth", methods = ["POST"])

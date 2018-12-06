@@ -22,12 +22,20 @@ def daily(): #creates the daily db
     command = "CREATE TABLE daily(date TEXT, cat TEXT, dog TEXT, recipe TEXT, word TEXT, defi TEXT, weather TEXT, temperature TEXT)"
     c.execute(command)
 
+def pref(): #creates the pref db
+#    command = "CREATE TABLE pref(user TEXT, source TEXT, daily TEXT)"
+    command = "CREATE TABLE pref(user TEXT, preffered TEXT, type ENUM ('source', 'daily'))"
+    c.execute(command)
+
+    
 def main(): #calls all of the functions to build the databases
     try:
         users()
         articles()
         comments()
         daily()
+        pref()
+        print("done")
     except:
         pass
 
