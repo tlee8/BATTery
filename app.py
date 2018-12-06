@@ -54,8 +54,6 @@ def login():
     Users must log in to access website
     If a user does not have an account, they may sign up for one
     '''
-    if "username" not in session:
-        return redirect(url_for("login"))
     return render_template("login.html")
 
 @app.route("/logout", methods=["POST", "GET"])
@@ -131,15 +129,17 @@ def regauth():
     flash("The username you entered is taken.")
     return redirect(url_for("register"))
 
-@app.route("/popularposts" methods=["GET"])
+@app.route("/popularposts", methods=["GET"])
 def popposts():
+    if "username" not in session:
+        return redirect(url_for("login"))
     return render_template("popularposts.html")
 
 @app.route("/mystuff")
 def mystuff():
     if "username" not in session:
         return redirect(url_for("login"))
-    return render_template("mystuff.html", myarticles = True, title = "My Articles", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+    return render_template("mystuff.html")
 
 @app.route("/preferences")
 def preferences():

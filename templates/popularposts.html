@@ -21,6 +21,10 @@
 
 {%block body%}
 <form action = "/popularposts" method = "GET">
-<button type = "submit" value = "liked"> LIKE </button>
+<button type = "submit" value = "liked" > LIKE </button>
+</form>
+<form action = "/popularposts" method = "GET">
+  <input type = "text" value = "comment" placeholder = "Enter comment here">
+  <button type = "submit" value = "submitcomment"> Submit </button>
 </form>
 {%endblock%}
