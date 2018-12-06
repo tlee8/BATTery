@@ -150,16 +150,12 @@
     <br><br>
 
     <b> Dog Pic of the Day </b><br>
-    <div class = "row">
-      <img src = {{dogPic}} width = "80%">
-    </div>
+    <img src = {{dogPic}} width="120">
 
     <br><br>
 
     <b> Cat Pic of the Day </b><br>
-    <div class = "row">
-      <img src = {{catPic}} width = "80%">
-    </div>
+    <img src = {{catPic}} width="120">
 
   </div>
 
