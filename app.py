@@ -107,6 +107,16 @@ def mystuff():
 def preferences():
     return render_template("preferences.html", pref = True)
 
+@app.route("/updatepref", methods = ["POST"])
+def updatepref():
+    sources = request.form.getlist('sources')
+    dailies = request.form.getlist('dailies')
+    print(sources)
+    print(dailies)
+    return redirect(url_for("home"))
+
+
+
 if __name__== "__main__":
     app.debug = True
     app.run()
