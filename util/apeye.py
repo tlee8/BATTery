@@ -5,7 +5,6 @@ with open("data/keys.json") as APIkeys:
 
 newsKey = keys["newsKey"]
 wordKey = keys["wordKey"]
-recipeKey = keys["recipeKey"]
 
 def weather():
     url = "https://ipapi.co/json/"
@@ -90,7 +89,3 @@ def catIm():
         return im
     else:
         catIm()
-
-def recipe():
-    url = 'https://www.food2fork.com/api/get?key='
-    url += recipeKey

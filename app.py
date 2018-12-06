@@ -1,13 +1,17 @@
-
+import json
+import urllib
+import random
+import os
+import ssl
 
 from flask import Flask, render_template, session, request, url_for, redirect, flash
-import json, urllib, random
-import os, ssl
+
+from util import dataaccess, apeye
+
 if (not os.environ.get('PYTHONHTTPSVERIFY', '') and
     getattr(ssl, '_create_unverified_context', None)):
     ssl._create_default_https_context = ssl._create_unverified_context
 
-from util import dataaccess, apeye
 
 
 app = Flask(__name__)
