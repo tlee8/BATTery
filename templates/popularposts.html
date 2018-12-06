@@ -19,15 +19,8 @@
 {%endblock%}
 
 
-
-<!--
 {%block body%}
-
-{% for article in poparticles %}
-
-<h4>{{article}} </h4><br><br>
-
-{% endfor %}
-
+<form action = "/popularposts" method = "GET">
+<button type = "submit" value = "liked"> LIKE </button>
+</form>
 {%endblock%}
--->
