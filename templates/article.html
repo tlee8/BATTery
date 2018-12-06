@@ -1,6 +1,7 @@
-{% extends "base.html" %}
+{% extends "home.html" %}
 
-{% block title %} {{articles[i][0]}} {% endblock %}
+<!-- The 0 needs to be replaced with an appropriate variable for each article -->
+{% block title %} {{articles[0][0]}} {% endblock %}
 
 
 {% block body %}
@@ -9,14 +10,18 @@
 
   <div class = "col-sm-12 col-md-9 col-lg-10">
 
-    <h1> {{articles[i][0]}} </h1>
+        <!-- here as well -->
+    <h1> {{articles[0][0]}} </h1>
     <br><br>
 
-    <h5>{{article[0]}} </h5>
-    <p>{{article[1]}}</p><br><br>
-    
+    <h5> <img src = {{articles[0][3]}} style="height:50%; width:80%"> </h5>
 
-    {%endfor%}
+    <br>
+
+    <p>{{articles[0][2]}}</p>
+
+    <br><br>
+
 
   </div>
 
