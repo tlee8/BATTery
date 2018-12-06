@@ -2,7 +2,7 @@
 
 import sqlite3
 from datetime import date
-import db_builder
+from util import db_builder
 
 db_builder.main()
 
@@ -38,7 +38,7 @@ def saveday(cat, dog, word, defi, weather, temperature):
         c.execute("INSERT INTO users VALUES (?,?,?,?,?,?,?)", params)
         db.commit() #save changes
         db.close()  #close database
-    
+
 def newday():
     DB_FILE = "data/BATT.db"
     date = date.today().isoformat()
