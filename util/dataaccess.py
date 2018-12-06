@@ -96,7 +96,7 @@ def getPrefs(user):
 
     command = "SELECT * FROM pref WHERE user = '{0}' ".format(user)
     c.execute(command)
-    if !(c.fetchone()):
+    if (not c.fetchone()):
         #sources = ['ars-technica', 'abc-news', 'bbc-news', 'business-insider','buzzfeed', 'cbs-news', 'el-mundo', 'the-new-york-times', 'national-geographic', 'the-wall-street-journal', 'the-washington-post']
         #dailies = ['Word', 'Date', 'Cat', 'Dog', 'Weather']
 
