@@ -1,13 +1,17 @@
-
+import json
+import urllib
+import random
+import os
+import ssl
 
 from flask import Flask, render_template, session, request, url_for, redirect, flash
-import json, urllib, random
-import os, ssl
+
+from util import dataaccess, apeye
+
 if (not os.environ.get('PYTHONHTTPSVERIFY', '') and
     getattr(ssl, '_create_unverified_context', None)):
     ssl._create_default_https_context = ssl._create_unverified_context
 
-from util import dataaccess, apeye
 
 
 app = Flask(__name__)
@@ -26,6 +30,11 @@ words, defs = apeye.word()
 x = random.randint(1, len(words)) - 1
 word = words[x]
 definition = defs[x]
+
+s = apeye.number()
+
+dogPic = apeye.dogIm()
+catPic = apeye.catIm()
 
 @app.route("/")
 def hello():
@@ -61,6 +70,7 @@ def logout():
 def home():
     ''' Displays information from all APIs to logged in users
     '''
+<<<<<<< HEAD
     #prefs = dataaccess.getPrefs(session.get('username'))
     #news = apeye.news(pref)
     news =  apeye.news()
@@ -68,6 +78,9 @@ def home():
     for i in range(10):
         articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
     return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature) # , prefs = prefs)
+=======
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature, s = s, dogPic = dogPic, catPic = catPic)
+>>>>>>> 937541a897aa26af83ea79d9fa4607a99d68b12e
 
 @app.route("/article", methods=["POST", "GET"])
 def article():

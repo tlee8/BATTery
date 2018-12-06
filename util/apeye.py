@@ -1,4 +1,4 @@
-import json, urllib
+import json, urllib, datetime
 
 with open("data/keys.json") as APIkeys:
     keys = json.loads(APIkeys.read())
@@ -48,3 +48,49 @@ def word():
         defs.append(d["def"][0]["sseq"][0][0][1]["dt"][0][1].strip("{bc}a_link|"))
 
     return words, defs
+
+def number():
+    now = datetime.datetime.now()
+    month = now.month
+    day = now.day
+
+    url = 'http://numbersapi.com/' + str(month) + '/' + str(day) + '/date'
+    s = urllib.request.urlopen(url)
+    s = s.read()
+    s = str(s)[2:-1]
+
+    return s
+
+def dog():
+    url = "https://random.dog/woof.json"
+    s = urllib.request.urlopen(url)
+    s = s.read()
+    d = json.loads(s)
+
+    dogPic = d['url']
+
+    return dogPic
+
+def dogIm():
+    im = dog()
+    if im[-3:] == 'jpg' or im[-3:] == "JPG":
+        return im
+    else:
+        dogIm()
+
+def cat():
+    url = "https://aws.random.cat/meow"
+    s = urllib.request.urlopen(url)
+    s = s.read()
+    d = json.loads(s)
+
+    catPic = d['file']
+
+    return catPic
+
+def catIm():
+    im = cat()
+    if im[-3:] == 'jpg' or im[-3:] == "JPG":
+        return im
+    else:
+        catIm()

@@ -43,6 +43,9 @@ The Daily Devo is an interactive portal with the purpose of providing users with
 #### Login & Register ####
 All users must be logged in to use Daily Devo. Users will immediately be directed to the login page unless they are already logged in, in which case they will be directed to the home page. If a user does not have an account, they may create one by clicking on the link to the register page. After they successfully create an account, they will be prompted to log in again.
 
+#### API Keys ####
+In the data folder you will find a filed named 'keys.json', which currently store API keys needed for the News API and the Merriam-Webster API. You can open up the file, and change the API key value to keys that you have provisioned yourself. All you have to do is change the string following the ':' to your own key for the designated API, and you're good to go!
+
 #### Home Page ####
 On the home page, all available information will be shown by default. The heading contains links to other pages on the site, such as the Popular Posts, My Articles and Preferences pages. There is also always a logout button shown so users can logout at any point. On the main portion of the website, recent article headings and previews are shown. These will contain a link that will direct the user to a page specifically for that article, where the whole article may be viewed. On the right side, there is a sidebar containing snippets of information, such as weather.
 
