@@ -205,9 +205,8 @@
   </div>
 
   {%endif%}
-<br><br><br>
 
-
+  <br><br>
 
 
   <h4>Daily Preferences</h4>
@@ -233,14 +232,14 @@
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="Weather" value="Weather" name = "dailies">
-    <label class="form-check-label" for="Word">Weather</label>
+    <label class="form-check-label" for="Weather">Weather</label>
   </div>
 
   {%else%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="Weather" value="Weather" name = "dailies">
-    <label class="form-check-label" for="Word">Weather</label>
+    <label class="form-check-label" for="Weather">Weather</label>
   </div>
 
   {%endif%}
@@ -251,19 +250,52 @@
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="Date" value="Date" name = "dailies">
-    <label class="form-check-label" for="Word">Date Fact</label>
+    <label class="form-check-label" for="Date">Date Fact</label>
   </div>
 
   {%else%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="Date" value="Date" name = "dailies">
-    <label class="form-check-label" for="Word">Date Fact</label>
+    <label class="form-check-label" for="Date">Date Fact</label>
   </div>
 
   {%endif%}
 
 
+  {% if "Cat" in dailies%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Cat" value="Cat" name = "dailies">
+    <label class="form-check-label" for="Cat">Cat Picture</label>
+  </div>
+
+  {%else%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Cat" value="Cat" name = "dailies">
+    <label class="form-check-label" for="Cat">Cat Picture</label>
+  </div>
+
+  {%endif%}
+
+  {% if "Dog" in dailies%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Dog" value="Dog" name = "dailies">
+    <label class="form-check-label" for="Dog">Dog Picture</label>
+  </div>
+
+  {%else%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Dog" value="Dog" name = "Dog">
+    <label class="form-check-label" for="Dog">Dog Picture</label>
+  </div>
+
+  {%endif%}
+
+  <br><br>
 
   <button class = "btn btn-primary" type = "submit"> Update Preferences </button>
 

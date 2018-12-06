@@ -140,7 +140,7 @@ def regauth():
 def popposts():
     if "username" not in session:
         return redirect(url_for("login"))
-    return render_template("popularposts.html", comments = comments)
+    return render_template("popularposts.html")
 
 @app.route("/mystuff")
 def mystuff():

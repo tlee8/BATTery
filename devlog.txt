@@ -203,24 +203,27 @@ ahnafK -- 2018-12-04 12:36
 --------------------------------------------------------------
 - created function to check if daily needs updating
 - created function that adds an entry to daily
-==============================================================
+
 
 thomasL -- 2018-12-04 21:13
 --------------------------------------------------------------
 - Got Merriam Webster API working
 - Moved Keys to json file
 - Adjusted api file to work with json file
+=============================================================
+
+britniC -- 2018-12-05 12:30
+--------------------------------------------------------------
+- Made preferences page
 ==============================================================
 
-thomasL -- 2018-12-05 12:33
+britniC -- 2018-12-05 19:40
 --------------------------------------------------------------
-- Added Numbers API for date fact
-- Started random dog
-==============================================================
-
-thomasL -- 2018-12-05 20:32
---------------------------------------------------------------
-- Finished random dog
-- Added random cat
-- Worked on getting random dog and cat to only return images
+- Made preferences work
+  - Changes what is viewable in home
+  - Changes what news sources are viewed
+  - Preferences are saved to users (still need database
+    functionality)
+- Started on liking and commenting
+- Made articles.html functional
 ==============================================================
