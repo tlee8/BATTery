@@ -70,13 +70,31 @@ def logout():
 def home():
     ''' Displays information from all APIs to logged in users
     '''
-    #prefs = dataaccess.getPrefs(session.get('username'))
-    #news = apeye.news(pref)
+    #sources = dataaccess.getPrefs(session.get('username'))[0]
+    #news = apeye.news(sources)
     news =  apeye.news()
     articles = {}
     for i in range(10):
         articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature) # , prefs = prefs)
+
+    '''dailies = dataaccess.getPrefs(session.get('username'))[1]
+    if "Weather" in dailies:
+        weather = apeye.weather()["currently"]["summary"]
+        temperature = apeye.weather()["currently"]["temperature"]
+    if "Dog" in dailies:
+        dogPic = apeye.dogIm()
+    if "Cat" in dailies:
+        catPic = apeye.catIm()
+    if "Word" in dailies:
+        words, defs = apeye.word()
+        x = random.randint(1, len(words)) - 1
+        word = words[x]
+        definition = defs[x]
+    if "Date" in dailies:
+        s = apeye.number()
+
+    '''
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
@@ -117,9 +135,9 @@ def mystuff():
 
 @app.route("/preferences")
 def preferences():
-    sources = dataaccess.getPrefs(session.get('username'))[0]
-    dailies = dataaccess.getPrefs(session.get('username'))[1]
-    return render_template("preferences.html", pref = True, sources = sources, dailies = dailies )
+    #sources = dataaccess.getPrefs(session.get('username'))[0]
+    #dailies = dataaccess.getPrefs(session.get('username'))[1]
+    return render_template("preferences.html", pref = True) #, sources = sources, dailies = dailies )
 
 @app.route("/updatepref", methods = ["POST"])
 def updatepref():

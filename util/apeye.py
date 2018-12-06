@@ -20,7 +20,8 @@ def weather():
 
     return weatherDict
 
-def news(prefs):
+def news():#prefs):
+    '''
     newsDict = {}
     sources = ['ars-technica', 'abc-news', 'bbc-news', 'business-insider','buzzfeed', 'cbs-news', 'el-mundo', 'the-new-york-times', 'national-geographic', 'the-wall-street-journal', 'the-washington-post']
     for src in prefs:
@@ -32,6 +33,13 @@ def news(prefs):
             temp = json.loads(response)
             for key in temp:
                 newsDict[key] = temp[key]
+    '''
+    src = "bbc-news"
+    url = ('https://newsapi.org/v2/top-headlines?'
+       'sources=' + src + '&'
+           'apiKey=' + newsKey)
+    response = urllib.request.urlopen(url).read()
+    newsDict = json.loads(response)
     return newsDict
 
 def word():
