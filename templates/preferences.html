@@ -10,81 +10,260 @@
 
   <h4> Preferred News Sources </h4>
 
+  {%if "abc-news" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="abc-news" value="abc-news" name = "sources" checked>
+    <label class="form-check-label" for="abc-news">ABC News</label>
+  </div>
+
+  {%else%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="abc-news" value="abc-news" name = "sources">
     <label class="form-check-label" for="abc-news">ABC News</label>
   </div>
+
+  {%endif%}
+
+
+
+  {% if "ars-technica" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="ars-technica" value="ars-technica" name = "sources" checked>
+    <label class="form-check-label" for="ars-technica">Ars Technica</label>
+  </div>
+
+  {%else%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="ars-technica" value="ars-technica" name = "sources">
     <label class="form-check-label" for="ars-technica">Ars Technica</label>
   </div>
 
+  {%endif%}
+
+
+
+  {% if "bbc-news" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="bbc-news" value="bbc-news" name = "sources" checked>
+    <label class="form-check-label" for="bbc-news">BBC News</label>
+  </div>
+
+  {%else%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="bbc-news" value="bbc-news" name = "sources">
     <label class="form-check-label" for="bbc-news">BBC News</label>
   </div>
+
+  {%endif%}
+
+
+
+  {% if "business-insider" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="business-insider" value="business-insider" name = "sources" checked>
+    <label class="form-check-label" for="business-insider">Business Insider</label>
+  </div>
+
+  {%else%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="business-insider" value="business-insider" name = "sources">
     <label class="form-check-label" for="business-insider">Business Insider</label>
   </div>
 
+  {%endif%}
+
+
+
+  {% if "buzzfeed" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="buzzfeed" value="buzzfeed" name = "sources" checked>
+    <label class="form-check-label" for="buzzfeed">Buzzfeed</label>
+  </div>
+
+  {%else%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="buzzfeed" value="buzzfeed" name = "sources">
     <label class="form-check-label" for="buzzfeed">Buzzfeed</label>
   </div>
+
+  {%endif%}
+
+
+
+  {% if "cbs-news" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="cbs-news" value="cbs-news" name = "sources" checked>
+    <label class="form-check-label" for="cbs-news">CBS News</label>
+  </div>
+
+  {%else%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="cbs-news" value="cbs-news" name = "sources">
     <label class="form-check-label" for="cbs-news">CBS News</label>
   </div>
 
+  {%endif%}
+
+
+
+  {% if "el-mundo" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="el-mundo" value="el-mundo" name = "sources" checked>
+    <label class="form-check-label" for="el-mundo">El Mundo</label>
+  </div>
+
+  {%else%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="el-mundo" value="el-mundo" name = "sources">
     <label class="form-check-label" for="el-mundo">El Mundo</label>
   </div>
+
+  {%endif%}
+
+
+
+  {% if "national-geographic" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="national-geographic" value="national-geographic" name = "sources" checked>
+    <label class="form-check-label" for="national-geographic">National Geographic</label>
+  </div>
+
+  {%else%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="national-geographic" value="national-geographic" name = "sources">
     <label class="form-check-label" for="national-geographic">National Geographic</label>
   </div>
 
+  {%endif%}
+
+
+
+  {% if "the-new-york-times" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="the-new-york-times" value="the-new-york-times" name = "sources" checked>
+    <label class="form-check-label" for="the-new-york-times">New York Times</label>
+  </div>
+
+  {%else%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="the-new-york-times" value="the-new-york-times" name = "sources">
     <label class="form-check-label" for="the-new-york-times">New York Times</label>
   </div>
+
+  {%endif%}
+
+
+
+  {% if "the-wall-street-journal" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="the-wall-street-journal" value="the-wall-street-journal" name = "sources" checked>
+    <label class="form-check-label" for="the-wall-street-journal">Wall Street Journal</label>
+  </div>
+
+  {%else%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="the-wall-street-journal" value="the-wall-street-journal" name = "sources">
     <label class="form-check-label" for="the-wall-street-journal">Wall Street Journal</label>
   </div>
 
+  {%endif%}
+
+
+
+  {% if "the-washington-post" in sources%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="the-washington-post" value="the-washington-post" name = "sources" checked>
+    <label class="form-check-label" for="the-washington-post">National Geographic</label>
+  </div>
+
+  {%else%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="the-washington-post" value="the-washington-post" name = "sources">
     <label class="form-check-label" for="the-washington-post">National Geographic</label>
-  </div><br><br><br>
+  </div>
 
-
+  {%endif%}
+<br><br><br>
 
 
 
 
   <h4>Daily Preferences</h4>
+
+  {% if "Word" in dailies%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Word" value="Word" name = "dailies" checked>
+    <label class="form-check-label" for="Word">Word of the Day</label>
+  </div>
+
+  {%else%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="Word" value="Word" name = "dailies">
     <label class="form-check-label" for="Word">Word of the Day</label>
   </div>
+
+  {%endif%}
+
+
+  {% if "Weather" in dailies%}
 
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="Weather" value="Weather" name = "dailies">
     <label class="form-check-label" for="Word">Weather</label>
   </div>
 
+  {%else%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Weather" value="Weather" name = "dailies">
+    <label class="form-check-label" for="Word">Weather</label>
+  </div>
+
+  {%endif%}
+
+
+
+  {% if "Date" in dailies%}
+
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="Date" value="Date" name = "dailies">
     <label class="form-check-label" for="Word">Date Fact</label>
   </div>
+
+  {%else%}
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Date" value="Date" name = "dailies">
+    <label class="form-check-label" for="Word">Date Fact</label>
+  </div>
+
+  {%endif%}
+
+
 
   <button class = "btn btn-primary" type = "submit"> Update Preferences </button>
 

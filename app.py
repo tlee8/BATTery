@@ -15,10 +15,7 @@ app.secret_key = os.urandom(32)
 
 
 #hardcoded info for home page
-news =  apeye.news()
-articles = {}
-for i in range(10):
-    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
+
 
 #word = "College"
 #definition = "The reason for my eternal suffering"
@@ -64,7 +61,13 @@ def logout():
 def home():
     ''' Displays information from all APIs to logged in users
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+    #prefs = dataaccess.getPrefs(session.get('username'))
+    #news = apeye.news(pref)
+    news =  apeye.news()
+    articles = {}
+    for i in range(10):
+        articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature) # , prefs = prefs)
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
@@ -105,14 +108,15 @@ def mystuff():
 
 @app.route("/preferences")
 def preferences():
-    return render_template("preferences.html", pref = True)
+    sources = dataaccess.getPrefs(session.get('username'))[0]
+    dailies = dataaccess.getPrefs(session.get('username'))[1]
+    return render_template("preferences.html", pref = True, sources = sources, dailies = dailies )
 
 @app.route("/updatepref", methods = ["POST"])
 def updatepref():
     sources = request.form.getlist('sources')
     dailies = request.form.getlist('dailies')
-    print(sources)
-    print(dailies)
+    #dataaccess.setPrefs(session.get('username'), sources, dailies)
     return redirect(url_for("home"))
 
 
