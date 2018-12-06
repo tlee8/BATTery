@@ -19,7 +19,10 @@ app.secret_key = os.urandom(32)
 
 
 #hardcoded info for home page
-
+news =  apeye.news()
+articles = {}
+for i in range(10):
+    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
 
 #word = "College"
 #definition = "The reason for my eternal suffering"
@@ -40,7 +43,7 @@ catPic = apeye.catIm()
 def hello():
     ''' Immediately redirects to login page; users must be logged in to use
     '''
-    if ( (session.get('username') == "battery") ):
+    if session.get('username'):
         return redirect(url_for("home"))
     else:
         return redirect(url_for("login"))
@@ -66,17 +69,17 @@ def logout():
         flash("You have successfully logged out")
         return redirect(url_for("login"))
 
-news =  apeye.news()
-articles = {}
-for i in range(10):
-    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
-
 @app.route("/home", methods=["POST", "GET"])
 def home():
     ''' Displays information from all APIs to logged in users
     '''
+    if "username" not in session:
+        return redirect(url_for("login"))
     #sources = dataaccess.getPrefs(session.get('username'))[0]
     #news = apeye.news(sources)
+    #articles = {}
+    #for i in range(10):
+        #articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
 
     '''dailies = dataaccess.getPrefs(session.get('username'))[1]
     if "Weather" in dailies:
@@ -99,7 +102,14 @@ def home():
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
-    return render_template("article.html", articles = articles)
+    if "username" not in session:
+        return redirect(url_for("login"))
+    title = request.args["title"]
+    print(title)
+    for article in articles:
+        if title == articles[article][0]:
+            print(article)
+            return render_template("article.html", article = articles[article])
 
 @app.route("/auth", methods = ["POST"])
 def auth():
@@ -126,25 +136,34 @@ def regauth():
     flash("The username you entered is taken.")
     return redirect(url_for("register"))
 
-@app.route("/popularposts")
+@app.route("/popularposts", methods=["GET"])
 def popposts():
-    return render_template("popularposts.html", popposts = True, title = "Popular Posts", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+    if "username" not in session:
+        return redirect(url_for("login"))
+    return render_template("popularposts.html", comments = comments)
 
 @app.route("/mystuff")
 def mystuff():
-    return render_template("mystuff.html", myarticles = True, title = "My Articles", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+    if "username" not in session:
+        return redirect(url_for("login"))
+    return render_template("mystuff.html")
 
 @app.route("/preferences")
 def preferences():
     #sources = dataaccess.getPrefs(session.get('username'))[0]
     #dailies = dataaccess.getPrefs(session.get('username'))[1]
+    if "username" not in session:
+        return redirect(url_for("login"))
     return render_template("preferences.html", pref = True) #, sources = sources, dailies = dailies )
 
 @app.route("/updatepref", methods = ["POST"])
 def updatepref():
+    if "username" not in session:
+        return redirect(url_for("login"))
     sources = request.form.getlist('sources')
     dailies = request.form.getlist('dailies')
     #dataaccess.setPrefs(session.get('username'), sources, dailies)
+    flash("You have successfully updated your preferences")
     return redirect(url_for("home"))
 
 
