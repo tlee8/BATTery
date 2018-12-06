@@ -69,7 +69,7 @@ def logout():
 news =  apeye.news()
 articles = {}
 for i in range(10):
-    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], i, i+1]
+    articles[i]= [news['articles'][i]['title'], news['articles'][i]['description'], news['articles'][i]['content'], news['articles'][i]['urlToImage'], news['articles'][i]['url'], i, i+1]
 
 @app.route("/home", methods=["POST", "GET"])
 def home():
@@ -107,7 +107,9 @@ def popposts():
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
-    return render_template("article.html", articles = articles)
+    for article in articles:
+        if articles[article][0] == request.args["title"]:
+            return render_template("article.html", article = articles[article])
 
 @app.route("/auth", methods = ["POST"])
 def auth():

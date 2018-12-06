@@ -81,6 +81,7 @@ def dog():
 
 def dogIm():
     im = dog()
+    print(im)
     if im[-3:] == 'jpg' or im[-3:] == "JPG":
         return im
     else:
@@ -98,6 +99,7 @@ def cat():
 
 def catIm():
     im = cat()
+    print (im)
     if im[-3:] == 'jpg' or im[-3:] == "JPG":
         return im
     else:
