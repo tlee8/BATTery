@@ -1,33 +1,10 @@
-{%extends "home.html"%}
-
-
+{% extends "home.html" %}
 
 {% block title%} {{ title }} {%endblock%}
 
 
-
-{%block alerts%}
-
-{% set msgs = get_flashed_messages() %}
-
-{% for each in msgs %}
-
-<div class="alert alert-success" role="alert">{{each}} </div>
-
-{% endfor %}
-
-{%endblock%}
-
-
-{%block body%}
-<form action = "/popularposts" method = "GET">
-<button type = "submit" value = "liked" > LIKE </button>
-</form>
-<form action = "/popularposts" method = "GET">
-  <input type = "text" value = "comment" placeholder = "Enter comment here">
-  <button type = "submit" value = "submitcomment"> Submit </button>
-</form>
-
+{% block body %}
+<!-- copied this code from home.html because jinja does not work for some reason -->
 <div class = "row">
 
   <div class = "col-sm-12 col-md-9 col-lg-10">
@@ -65,4 +42,5 @@
 
 
   </div>
-{%endblock%}
+
+  {% endblock %}

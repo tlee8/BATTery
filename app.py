@@ -97,6 +97,14 @@ def home():
     '''
     return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
 
+@app.route("/myarticles", methods = ["POST", "GET"])
+def myarticles():
+    return render_template("myarticles.html", myarticles = True, title = "My Articles", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+
+@app.route("/popularposts")
+def popposts():
+    return render_template("popularposts.html", popposts = True, title = "Popular Posts", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+
 @app.route("/article", methods=["POST", "GET"])
 def article():
     return render_template("article.html", articles = articles)
@@ -127,8 +135,6 @@ def regauth():
     return redirect(url_for("register"))
 
 @app.route("/popularposts")
-def popposts():
-    return render_template("popularposts.html", popposts = True, title = "Popular Posts", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
 
 @app.route("/mystuff")
 def mystuff():
