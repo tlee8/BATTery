@@ -107,7 +107,9 @@ def popposts():
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
-    return render_template("article.html", articles = articles)
+    for article in articles:
+        if articles[article][0] == request.args["title"]:
+            return render_template("article.html", article = articles[article])
 
 @app.route("/auth", methods = ["POST"])
 def auth():
