@@ -98,7 +98,7 @@ def home():
         s = apeye.number()
 
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature, s = s, dogPic = dogPic, catPic = catPic)
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
