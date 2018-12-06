@@ -203,11 +203,24 @@ ahnafK -- 2018-12-04 12:36
 --------------------------------------------------------------
 - created function to check if daily needs updating
 - created function that adds an entry to daily
-
+==============================================================
 
 thomasL -- 2018-12-04 21:13
 --------------------------------------------------------------
 - Got Merriam Webster API working
 - Moved Keys to json file
 - Adjusted api file to work with json file
-=============================================================
+==============================================================
+
+thomasL -- 2018-12-05 12:33
+--------------------------------------------------------------
+- Added Numbers API for date fact
+- Started random dog
+==============================================================
+
+thomasL -- 2018-12-05 20:32
+--------------------------------------------------------------
+- Finished random dog
+- Added random cat
+- Worked on getting random dog and cat to only return images
+==============================================================

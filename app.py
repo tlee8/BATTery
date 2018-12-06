@@ -30,6 +30,11 @@ x = random.randint(1, len(words)) - 1
 word = words[x]
 definition = defs[x]
 
+s = apeye.number()
+
+dogPic = apeye.dogIm()
+catPic = apeye.catIm()
+
 @app.route("/")
 def hello():
     ''' Immediately redirects to login page; users must be logged in to use
@@ -64,7 +69,7 @@ def logout():
 def home():
     ''' Displays information from all APIs to logged in users
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature, s = s, dogPic = dogPic, catPic = catPic)
 
 @app.route("/article", methods=["POST", "GET"])
 def article():
