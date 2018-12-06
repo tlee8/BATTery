@@ -226,4 +226,7 @@ britniC -- 2018-12-05 19:40
     functionality)
 - Started on liking and commenting
 - Made articles.html functional
+- Fixed home page formattign
+  - Adjusted side bar width
+  - Fixed overlapping text issue with flex 
 ==============================================================
