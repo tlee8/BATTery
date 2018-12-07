@@ -2,6 +2,7 @@
 
 import sqlite3
 from datetime import date
+#from util         fix when push
 from util import db_builder
 import os
 
@@ -82,10 +83,10 @@ def setPref(user,text,types):
     #db.close()  #close database
     return True
 
-def setPref(user, sources, dailies):
+def setPrefs(user, sources, dailies):
     #db_builder.main()
 
-    DB_FILE = "data//BATT.db"
+    DB_FILE = "../data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -132,19 +133,18 @@ def getPrefs(user):
         setPref(user,"Weather", "daily")
         setPref(user,"Date Fact", "daily")
 
-    command = "SELECT source FROM pref WHERE user = '{0}'".format(user)
+    command = "SELECT preffered,type FROM pref WHERE user = '{0}'".format(user)
     c.execute(command)
-    sources = []
+    ans = {}
+    ans['source']=[]
+    ans['daily'] = []
     for row in c.fetchall():
-        sources.append(row[0])
-    command = "SELECT daily FROM pref WHERE user = '{0}'".format(user)
+        ans[row[1]].append(row[0])
     c.execute(command)
-    dailies = []
-    for row in c.fetchone():
-        dailies.append(row)
+
     db.commit() #save changes
     #db.close()  #close database
-    return sources, dailies
+    return ans[sources], ans[dailies]
 
 def origSetPref(user):
     setPref(user,"ABC News", "source")
@@ -164,6 +164,6 @@ def origSetPref(user):
 
 
 #def main():
-#    setPrefs("battery", "CNN", "article")
+#    setPref("battery", "CNN", "source")
 #    print(getPrefs("battery"))
 #main()
