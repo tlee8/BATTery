@@ -1,4 +1,4 @@
-import json, urllib, datetime
+import json, urllib, datetime, random
 
 with open("data/keys.json") as APIkeys:
     keys = json.loads(APIkeys.read())
@@ -6,7 +6,7 @@ with open("data/keys.json") as APIkeys:
 newsKey = keys["newsKey"]
 wordKey = keys["wordKey"]
 
-def weather():
+def weather(key):
     url = "https://ipapi.co/json/"
     f = urllib.request.urlopen(url).read()
     d = json.loads(f)
@@ -18,10 +18,10 @@ def weather():
     file = req.read()
     weatherDict = json.loads(file)
 
-    return weatherDict
+    return weatherDict["currently"][key]
 
 def news():#prefs):
-    '''
+    ''' Code to be implemented
     newsDict = {}
     sources = ['ars-technica', 'abc-news', 'bbc-news', 'business-insider','buzzfeed', 'cbs-news', 'el-mundo', 'the-new-york-times', 'national-geographic', 'the-wall-street-journal', 'the-washington-post']
     for src in prefs:
@@ -34,13 +34,18 @@ def news():#prefs):
             for key in temp:
                 newsDict[key] = temp[key]
     '''
+
+
     src = "bbc-news"
     url = ('https://newsapi.org/v2/top-headlines?'
        'sources=' + src + '&'
            'apiKey=' + newsKey)
     response = urllib.request.urlopen(url).read()
     newsDict = json.loads(response)
-    return newsDict
+    articles = {}
+    for i in range(10):
+        articles[i]= [newsDict['articles'][i]['title'], newsDict['articles'][i]['description'], newsDict['articles'][i]['content'], newsDict['articles'][i]['urlToImage'], newsDict['articles'][i]['url'], i, i+1]
+    return articles
 
 def word():
     URL = 'https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=' + wordKey
@@ -55,7 +60,8 @@ def word():
         words.append(d["hwi"]["hw"])
         defs.append(d["def"][0]["sseq"][0][0][1]["dt"][0][1].strip("{bc}a_link|"))
 
-    return words, defs
+    x = random.randint(1, len(words)) - 1
+    return words[x], defs[x]
 
 def number():
     now = datetime.datetime.now()

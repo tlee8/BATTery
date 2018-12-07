@@ -10,6 +10,8 @@
 
   <a  style = "color:black" href = "/home"><h2>The Daily Devo</h2></a>
 
+  {#
+
   {%if myarticles%}
 
   <li class="nav-item">
@@ -62,6 +64,8 @@
 
   {%endif%}
 
+  #}
+
 </ul>
 
 <a class="btn btn-secondary" role = "button" href="/logout"> Logout </a>
@@ -109,52 +113,10 @@
             <p>{{articles[article][1]}}</p>
 
             <br><br>
-      </div>
-    </div>
-
-<!--
-    <div class = "row">
-
-    <div class = "col-sm-12 col-md-4 col-lg-3">
-
-      <img src = {{articles[article][3]}} style = "height:100">
-
-    </div>
-
-    <div class = "col-sm-12 col-md-8 col-lg-9">
-
-    <h5>{{articles[article][6]}}. <a href = "/article?title={{articles[article][0]}}" style = "color:black">{{articles[article][0]}}</a></h5>
-
-        <h5>{{articles[article][5]}}. <a href = "/article?title={{articles[article][0]}}" style = "color:black">{{articles[article][0]}}</a></h5>
-
-        <p>{{articles[article][1]}}</p>
-
-        <br><br>
 
       </div>
 
     </div>
-
-<!--
-    <div class = "flex-row">
-
-      <div class = "d-md-flex p-2">
-
-        <img src = {{articles[article][3]}} style = "width:200">
-
-      </div>
-
-      <div class = "flex-grow-1 p-2">
-
-        <h5>{{articles[article][5]}}. <a href = "/article?title={{articles[article][0]}}" style = "color:black">{{articles[article][0]}}</a></h5>
-
-        <p>{{articles[article][1]}}</p>
-
-        <br><br>
-
-      </div>
-
-    </div> -->
 
 
     {%endfor%}
@@ -186,32 +148,44 @@
     <br><br>
 
     <b> Fact for Today's Date: </b><br>
-    {{s}}
+    {{dateFact}}
 
     <br><br>
 
     <b> Dog Pic of the Day: </b><br>
+
     <div class = "row">
+
       <div class = "col-sm-12 col-md-12 col-lg-12">
-	{% if dogVid %}
-	<div><iframe src = {{dogPic}} width="100%"></iframe></div>
-	{% else %}
-	<div><img src = {{dogPic}} width="100%"></div>
-	{% endif %}
+
+      	{% if dogVid %}
+      	<div><iframe src = {{dogPic}} width="100%"></iframe></div>
+      	{% else %}
+      	<div><img src = {{dogPic}} width="100%"></div>
+      	{% endif %}
+
       </div>
+
     </div>
+
     <br><br>
 
     <b> Cat Pic of the Day: </b><br>
+
     <div class = "row">
+
       <div class = "col-sm-12 col-md-12 col-lg-12">
-	{% if catVid %}
-	<div><iframe src = {{catPic}} width="100%"></iframe></div>
-	{% else %}
-	<div><img src = {{catPic}} width="100%"></div>
-	{% endif %}
+
+      	{% if catVid %}
+      	<div><iframe src = {{catPic}} width="100%"></iframe></div>
+      	{% else %}
+      	<div><img src = {{catPic}} width="100%"></div>
+      	{% endif %}
+
       </div>
+
     </div>
+
   </div>
 
 </div>
