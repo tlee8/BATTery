@@ -204,6 +204,7 @@ ahnafK -- 2018-12-04 12:36
 - created function to check if daily needs updating
 - created function that adds an entry to daily
 
+
 thomasL -- 2018-12-04 21:13
 --------------------------------------------------------------
 - Got Merriam Webster API working
@@ -229,23 +230,3 @@ britniC -- 2018-12-05 19:40
   - Adjusted side bar width
   - Fixed overlapping text issue with flex 
 ==============================================================
-
-thomasL -- 2018-12-05 21:30
---------------------------------------------------------------
-- Fixed bugs
-  - date fact, dog, cat not loading
-=============================================================
-
-thomasL -- 2018-12-06 12:30
---------------------------------------------------------------
-- Added url for articles
-  - fixed article numbering
-=============================================================
-
-thomasL -- 2018-12-06 22:10
---------------------------------------------------------------
-- fixed image display
-  - does videos and gifs too
-- fixed alignment on myarticles and popular posts
-- pushed pretty, but less fucntional version to master
-=============================================================
