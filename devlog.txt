@@ -197,6 +197,7 @@ timM -- 2018-12-04 12:29
 - Uploaded new logo to get a new link
 - Fixed problem with stretching footer bar.
 - Made footer bar unfixed and fixed dimensions for a better visual.
+- Began working on mystuff.html and popularposts.html
 ==============================================================
 
 ahnafK -- 2018-12-04 12:36
@@ -213,9 +214,11 @@ thomasL -- 2018-12-04 21:13
 
 timM -- 2018-12-05 12:25
 --------------------------------------------------------------
-- Began working on mystuff.html and popularposts.html
 - Did most of the html portion of the pages
-==============================================================
+- mystuff.html and popularposts.html stopped working so had to fix that
+- made jinja and html work once again
+- finished the template for other pages to work with later.
+=============================================================
 
 britniC -- 2018-12-05 12:30
 --------------------------------------------------------------
@@ -242,28 +245,7 @@ thomasL -- 2018-12-05 21:30
   - date fact, dog, cat not loading
 =============================================================
 
-timM -- 2018-12-06 12:28
---------------------------------------------------------------
-- mystuff.html and popularposts.html stopped working so had to fix that
-- made jinja and html work once again
-- finished the template for other pages to work with later.
-=============================================================
-
-thomasL -- 2018-12-06 12:30
---------------------------------------------------------------
-- Added url for articles
-  - fixed article numbering
-=============================================================
-
-thomasL -- 2018-12-06 22:10
---------------------------------------------------------------
-- fixed image display
-  - does videos and gifs too
-- fixed alignment on myarticles and popular posts
-- pushed pretty, but less fucntional version to master
-=============================================================
-
-timM -- 2018-12-06 23:31
+timM -- 2018-12-05 23:31
 --------------------------------------------------------------
 - replaced mystuff.html with myarticles.html because mystuff.html broke once again.
 - made myarticles.html Flask portion work properly
@@ -273,11 +255,28 @@ timM -- 2018-12-06 23:31
 - started on visual of article.html
 =============================================================
 
-timM -- 2018-12-07 12:32
+
+thomasL -- 2018-12-06 12:30
+--------------------------------------------------------------
+- Added url for articles
+  - fixed article numbering
+=============================================================
+
+
+timM -- 2018-12-06 12:32
 --------------------------------------------------------------
 - myarticles.html and popularposts.html broke AGAINNN (fixed)
 - alignment of same pages was attempted to be fixed
 - began fixing different page size alignment changes of footer
+=============================================================
+
+
+thomasL -- 2018-12-06 22:10
+--------------------------------------------------------------
+- fixed image display
+  - does videos and gifs too
+- fixed alignment on myarticles and popular posts
+- pushed pretty, but less fucntional version to master
 =============================================================
 
 britniC -- 2018-12-07 00:04
