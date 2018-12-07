@@ -36,6 +36,11 @@ s = apeye.number()
 dogPic = apeye.dog()#Im()
 catPic = apeye.cat()#Im()
 
+dogVid = dogPic[-3:] == 'mp4'
+catVid = catPic[-3:] == 'mp4'
+
+print(dogVid,catVid)
+
 @app.route("/")
 def hello():
     ''' Immediately redirects to login page; users must be logged in to use
@@ -95,7 +100,7 @@ def home():
         s = apeye.number()
 
     '''
-    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature, s = s, dogPic = dogPic, catPic = catPic)
+    return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature, s = s, dogPic = dogPic, catPic = catPic, dogVid = dogVid, catVid = catVid)
 
 @app.route("/myarticles", methods = ["POST", "GET"])
 def myarticles():

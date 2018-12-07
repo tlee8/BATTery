@@ -193,7 +193,11 @@
     <b> Dog Pic of the Day: </b><br>
     <div class = "row">
       <div class = "col-sm-12 col-md-12 col-lg-12">
-	<img src = {{dogPic}} width="100%">
+	{% if dogVid %}
+	<div><iframe src = {{dogPic}} width="100%"></iframe></div>
+	{% else %}
+	<div><img src = {{dogPic}} width="100%"></div>
+	{% endif %}
       </div>
     </div>
     <br><br>
@@ -201,7 +205,11 @@
     <b> Cat Pic of the Day: </b><br>
     <div class = "row">
       <div class = "col-sm-12 col-md-12 col-lg-12">
-	<img src = {{catPic}} width="100%">
+	{% if catVid %}
+	<div><iframe src = {{catPic}} width="100%"></iframe></div>
+	{% else %}
+	<div><img src = {{catPic}} width="100%"></div>
+	{% endif %}
       </div>
     </div>
   </div>
