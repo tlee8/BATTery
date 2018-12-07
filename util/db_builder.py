@@ -35,10 +35,10 @@ def daily(): #creates the daily db
 
 def pref(): #creates the pref db
 #    command = "CREATE TABLE pref(user TEXT, source TEXT, daily TEXT)"
-    command = "CREATE TABLE pref(user TEXT, preffered TEXT, type ENUM ('source', 'daily'))"
+    command = "CREATE TABLE pref(user TEXT, preffered TEXT, type TEXT)"
     c.execute(command)
 
-
+    
 def main(): #calls all of the functions to build the databases
     try:
         users()

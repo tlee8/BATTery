@@ -82,13 +82,9 @@ def update():
         saveday("","","",word,definition,)
 '''
 
-
-'''
-Will be implemented when database is functional
-
 def setPref(user,text,types):
-    \'\'\'Sets preferences of user using single inputs, adds to database
-    \'\'\'
+    #db_builder.main()
+
     DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -98,41 +94,38 @@ def setPref(user,text,types):
     db.commit()#save changes
     db.close()  #close database
     return True
-'''
 
-
-'''
-Will be implemented when database is functional
-
-def setPref(user, sources, dailies):
-    \'\'\'Sets preferences of user using lists, calls other function, adds to
-    database
-    \'\'\'
+def setPrefs(user, sources, dailies):
+    #db_builder.main()
+    #print(sources)
+    #print(dailies)
+    print(user)
+    print('\n\n')
     DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command = "DELETE * FROM pref where user = '{0}'".format(user)
-    c.execute(command)
+
+    command = "DELETE FROM pref where user = '{0}'".format(user)
+    with sqlite3.connect(DB_FILE) as x:
+        x.execute(command)
     for source in sources:
+        #print(source)
         setPref(user, source, "source")
     for daily in dailies:
+        #print(daily)
         setPref(user, daily, "daily")
-    c.execute(command,params)
     db.commit()#save changes
     db.close()  #close database
     return True
-'''
 
-'''
-Will be implemented when database is functional
 
 def getPrefs(user):
-    \'\'\'Gets preferences of specific user
-    \'\'\'
+    #db_builder.main()
     DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
+    db_builder.main()
     command = "SELECT * FROM pref WHERE user = '{0}' ".format(user)
     c.execute(command)
     if (not c.fetchone()):
@@ -156,18 +149,38 @@ def getPrefs(user):
         setPref(user,"Weather", "daily")
         setPref(user,"Date Fact", "daily")
 
-    command = "SELECT source FROM pref WHERE user = '{0}'".format(user)
+    command = "SELECT preffered,type FROM pref WHERE user = '{0}'".format(user)
     c.execute(command)
-    sources = []
+    ans = dict()
+    ans['source']=[]
+    ans['daily'] = []
+    source = 'source'
+    daily = 'daily'
     for row in c.fetchall():
-        sources.append(row[0])
-    command = "SELECT daily FROM pref WHERE user = '{0}'".format(user)
+        ans[row[1]].append(row[0])
     c.execute(command)
-    dailies = []
-    for row in c.fetchone():
-        dailies.append(row)
-    return sources, dailies
-'''
+
+    db.commit() #save changes
+    db.close()  #close database
+    print(ans['source'])
+    return ans['source'], ans['daily']
+
+def origSetPref(user):
+    setPref(user,"ABC News", "source")
+    setPref(user,"Ars Technica", "source")
+    setPref(user,"BBC News", "source")
+    setPref(user,"Business Insider", "source")
+    setPref(user,"Buzzfeed", "source")
+    setPref(user,"El Mundo", "source")
+    setPref(user,"National Geographic", "source")
+    setPref(user,"New York Times", "source")
+    setPref(user,"Wall Street Journal", "source")
+    setPref(user,"National Geographic", "source")
+    setPref(user,"CBS News", "source")
+    setPref(user,"Word of the Day", "daily")
+    setPref(user,"Weather", "daily")
+    setPref(user,"Date Fact", "daily")
+
 
 #def main():
 #    setPrefs("battery", "CNN", "article")
