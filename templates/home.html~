@@ -185,12 +185,12 @@
 
     <br><br>
 
-    <b> Fact for Today's Date: </b><br>
+    <b> Date Fact </b><br>
     {{s}}
 
     <br><br>
 
-    <b> Dog Pic of the Day: </b><br>
+    <b> Dog Pic of the Day </b><br>
     <div class = "row">
       <div class = "col-sm-12 col-md-12 col-lg-12">
 	<img src = {{dogPic}} width="100%">
@@ -198,7 +198,7 @@
     </div>
     <br><br>
 
-    <b> Cat Pic of the Day: </b><br>
+    <b> Cat Pic of the Day </b><br>
     <div class = "row">
       <div class = "col-sm-12 col-md-12 col-lg-12">
 	<img src = {{catPic}} width="100%">

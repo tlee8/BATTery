@@ -1,6 +1,6 @@
 import sqlite3 #imports sqlite
 
-DB_FILE="data//BATT.db"
+DB_FILE="data/BATT.db"
 
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor() #facilitates db operations
@@ -23,11 +23,11 @@ def daily(): #creates the daily db
     c.execute(command)
 
 def pref(): #creates the pref db
-    command = "CREATE TABLE pref(user TEXT, source TEXT, daily TEXT)"
-    #command = "CREATE TABLE pref(user TEXT, preffered TEXT, type ENUM ('source', 'daily'))"
+#    command = "CREATE TABLE pref(user TEXT, source TEXT, daily TEXT)"
+    command = "CREATE TABLE pref(user TEXT, preffered TEXT, type ENUM ('source', 'daily'))"
     c.execute(command)
 
-
+    
 def main(): #calls all of the functions to build the databases
     try:
         users()
@@ -35,9 +35,7 @@ def main(): #calls all of the functions to build the databases
         comments()
         daily()
         pref()
-        print("YODELODELODELODELODELODELODELODEL")
-        db.commit() #save changes
-        db.close()  #close database
+        print("done")
     except:
         pass
 

@@ -6,8 +6,7 @@
 {% block body %}
 <!-- copied this code from home.html because jinja does not work for some reason -->
 <div class = "row">
-
-  <div class = "col-sm-12 col-md-9 col-lg-10">
+  <div class = "col-sm-12 col-md-8 col-lg-9">
 
     <h1> Articles </h1>
 
@@ -15,32 +14,23 @@
 
     {% for article in articles%}
 
-<div class = "row">
+    <div class="d-flex bd-highlight">
 
-<div class = "col-sm-12 col-md-4 col-lg-3">
+      <div class="p-2 bd-highlight">
+        <img src = {{articles[article][3]}} style = "height:100">
+      </div>
 
-  <img src = {{articles[article][3]}} style = "height:100">
+      <div class="p-2 flex-grow-1 bd-highlight">
 
-</div>
+        <h5>{{articles[article][6]}}. <a href = "/article?title={{articles[article][0]}}" style = "color:black">{{articles[article][0]}}</a></h5>
 
-<div class = "col-sm-12 col-md-8 col-lg-9">
+        <p>{{articles[article][1]}}</p>
 
-    <h5>{{articles[article][5]}}. {{articles[article][0]}}</h5>
-
-    <p>
-        {{articles[article][1]}}
-        Click <a href = "/article">here</a> for the article.
-    </p>
-
-    <br><br>
-
-</div>
-
-</div>
-
-    {%endfor%}
-
-
+        <br><br>
+      </div>
+    </div>
+    {% endfor %}
   </div>
+</div>
 
   {% endblock %}

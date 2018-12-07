@@ -3,13 +3,11 @@
 import sqlite3
 from datetime import date
 from util import db_builder
-import os
 
 db_builder.main()
 
 def registeruser(user, pwd):
-    db_builder.main()
-    DB_FILE="data//BATT.db"
+    DB_FILE="data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT username FROM users WHERE username = \'"+user+"\'"
@@ -18,24 +16,19 @@ def registeruser(user, pwd):
     if rows:
         return False;
     params = (user, pwd)
-    with sqlite3.connect(DB_FILE) as x:
-        x.execute("INSERT INTO users VALUES (?,?)", params)
-    origSetPref(user)
+    c.execute("INSERT INTO users VALUES (?,?)", params)
     db.commit() #save changes
-    #db.close()  #close database
+    db.close()  #close database
     return True
 
 def loginuser(user, pwd):
-    db_builder.main()
-    DB_FILE="data//BATT.db"
+    DB_FILE="data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT username, password FROM users WHERE username = ? AND password = ?"
     params = (user, pwd)
     c.execute(command, params)
     rows = c.fetchone()
-    db.commit() #save changes
-    #db.close()  #close database
     return rows
 
 '''
@@ -70,45 +63,37 @@ def update():
         saveday("","","",word,definition,)
 '''
 def setPref(user,text,types):
-    #db_builder.main()
-
-    DB_FILE = "data//BATT.db"
+    DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     params = (user,text,types)
     command = "INSERT INTO pref VALUES (?,?,?)"
     c.execute(command,params)
     db.commit()#save changes
-    #db.close()  #close database
+    db.close()  #close database
     return True
 
 def setPref(user, sources, dailies):
-    #db_builder.main()
-
-    DB_FILE = "data//BATT.db"
+    DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-
-    command = "DELETE FROM pref where user = '{0}'".format(user)
-    with sqlite3.connect(DB_FILE) as x:
-        x.execute(command)
+    command = "DELETE * FROM pref where user = '{0}'".format(user)
+    c.execute(command)
     for source in sources:
         setPref(user, source, "source")
     for daily in dailies:
         setPref(user, daily, "daily")
     c.execute(command,params)
     db.commit()#save changes
-    #db.close()  #close database
+    db.close()  #close database
     return True
 
 
 def getPrefs(user):
-    #db_builder.main()
-    DB_FILE = "data//BATT.db"
+    DB_FILE = "data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    db_builder.main()
     command = "SELECT * FROM pref WHERE user = '{0}' ".format(user)
     c.execute(command)
     if (not c.fetchone()):
@@ -142,26 +127,7 @@ def getPrefs(user):
     dailies = []
     for row in c.fetchone():
         dailies.append(row)
-    db.commit() #save changes
-    #db.close()  #close database
     return sources, dailies
-
-def origSetPref(user):
-    setPref(user,"ABC News", "source")
-    setPref(user,"Ars Technica", "source")
-    setPref(user,"BBC News", "source")
-    setPref(user,"Business Insider", "source")
-    setPref(user,"Buzzfeed", "source")
-    setPref(user,"El Mundo", "source")
-    setPref(user,"National Geographic", "source")
-    setPref(user,"New York Times", "source")
-    setPref(user,"Wall Street Journal", "source")
-    setPref(user,"National Geographic", "source")
-    setPref(user,"CBS News", "source")
-    setPref(user,"Word of the Day", "daily")
-    setPref(user,"Weather", "daily")
-    setPref(user,"Date Fact", "daily")
-
 
 #def main():
 #    setPrefs("battery", "CNN", "article")

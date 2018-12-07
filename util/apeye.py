@@ -20,8 +20,8 @@ def weather():
 
     return weatherDict
 
-def news(prefs):
-
+def news():#prefs):
+    '''
     newsDict = {}
     sources = ['ars-technica', 'abc-news', 'bbc-news', 'business-insider','buzzfeed', 'cbs-news', 'el-mundo', 'the-new-york-times', 'national-geographic', 'the-wall-street-journal', 'the-washington-post']
     for src in prefs:
@@ -40,7 +40,6 @@ def news(prefs):
            'apiKey=' + newsKey)
     response = urllib.request.urlopen(url).read()
     newsDict = json.loads(response)
-    '''
     return newsDict
 
 def word():
@@ -78,6 +77,7 @@ def dog():
 
     dogPic = d['url']
 
+    print(dogPic)
     return dogPic
 
 def dogIm():
@@ -96,6 +96,7 @@ def cat():
 
     catPic = d['file']
 
+    print(catPic)
     return catPic
 
 def catIm():
