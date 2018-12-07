@@ -211,6 +211,12 @@ thomasL -- 2018-12-04 21:13
 - Adjusted api file to work with json file
 =============================================================
 
+timM -- 2018-12-05 12:25
+--------------------------------------------------------------
+- Began working on mystuff.html and popularposts.html
+- Did most of the html portion of the pages
+==============================================================
+
 britniC -- 2018-12-05 12:30
 --------------------------------------------------------------
 - Made preferences page
@@ -236,6 +242,13 @@ thomasL -- 2018-12-05 21:30
   - date fact, dog, cat not loading
 =============================================================
 
+timM -- 2018-12-06 12:28
+--------------------------------------------------------------
+- mystuff.html and popularposts.html stopped working so had to fix that
+- made jinja and html work once again
+- finished the template for other pages to work with later.
+=============================================================
+
 thomasL -- 2018-12-06 12:30
 --------------------------------------------------------------
 - Added url for articles
@@ -249,3 +262,22 @@ thomasL -- 2018-12-06 22:10
 - fixed alignment on myarticles and popular posts
 - pushed pretty, but less fucntional version to master
 =============================================================
+
+timM -- 2018-12-06 23:31
+--------------------------------------------------------------
+- replaced mystuff.html with myarticles.html because mystuff.html broke once again.
+- made myarticles.html Flask portion work properly
+- finished Flask portion of popularposts.html as well
+- Created article.html
+- linked articles on the home page to article.html with placeholder article
+- started on visual of article.html
+=============================================================
+
+timM -- 2018-12-07 12:32
+--------------------------------------------------------------
+- myarticles.html and popularposts.html broke AGAINNN (fixed)
+- alignment of same pages was attempted to be fixed
+- began fixing different page size alignment changes of footer
+=============================================================
+
+
