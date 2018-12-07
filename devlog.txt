@@ -227,7 +227,7 @@ britniC -- 2018-12-05 19:40
 - Made articles.html functional
 - Fixed home page formattign
   - Adjusted side bar width
-  - Fixed overlapping text issue with flex 
+  - Fixed overlapping text issue with flex
 ==============================================================
 
 thomasL -- 2018-12-05 21:30
@@ -249,3 +249,24 @@ thomasL -- 2018-12-06 22:10
 - fixed alignment on myarticles and popular posts
 - pushed pretty, but less fucntional version to master
 =============================================================
+
+britniC -- 2018-12-07 00:04
+--------------------------------------------------------------
+- Attempted to make databases work:
+  - Tried to make database tables for preferences
+  - Continually had following errors:
+    >sqlite3.OperationalError: database is locked
+    >sqlite3.OperationalError: table does not exist
+    >sqlite3.OperationalError: unable to open database file
+  - Additionally, page would often say "The connection was
+    reset," unsure of cause.
+  - Troubleshooting unsuccessful. Created branch of broken
+    code to work with.
+- In master, refactored code for presentation:
+  - Added docstrings
+  - Commented out any routes made obsolete by malfunctioning
+    databases
+  - Fixed formatting of apeye.py, removed clunky code
+  - Sectioned app.py by component
+  - Added heading to all files
+==============================================================

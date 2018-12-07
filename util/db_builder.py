@@ -1,3 +1,13 @@
+#BATTery
+#Thomas Lee (PM)
+#Britni Canale
+#Ahnaf Kazi
+#Tim Marder
+#p06
+
+'''This script creates a database with the necessary tables for data to be
+stored'''
+
 import sqlite3 #imports sqlite
 
 DB_FILE="data/BATT.db"
@@ -27,7 +37,7 @@ def pref(): #creates the pref db
     command = "CREATE TABLE pref(user TEXT, preffered TEXT, type ENUM ('source', 'daily'))"
     c.execute(command)
 
-    
+
 def main(): #calls all of the functions to build the databases
     try:
         users()

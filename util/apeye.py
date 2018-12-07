@@ -1,3 +1,12 @@
+#BATTery
+#Thomas Lee (PM)
+#Britni Canale
+#Ahnaf Kazi
+#Tim Marder
+#p06
+
+'''This script extracts data from multiple APIs for use in application'''
+
 import json, urllib, datetime, random
 
 with open("data/keys.json") as APIkeys:
@@ -7,6 +16,7 @@ newsKey = keys["newsKey"]
 wordKey = keys["wordKey"]
 
 def weather(key):
+    '''Extracts data from DarkSky API'''
     url = "https://ipapi.co/json/"
     f = urllib.request.urlopen(url).read()
     d = json.loads(f)
@@ -17,11 +27,13 @@ def weather(key):
     req = urllib.request.urlopen(url2)
     file = req.read()
     weatherDict = json.loads(file)
-
     return weatherDict["currently"][key]
 
-def news():#prefs):
-    ''' Code to be implemented
+
+def news():
+    '''Extracts data from NewsAPI'''
+
+    ''' Code to be implemented when database is functional
     newsDict = {}
     sources = ['ars-technica', 'abc-news', 'bbc-news', 'business-insider','buzzfeed', 'cbs-news', 'el-mundo', 'the-new-york-times', 'national-geographic', 'the-wall-street-journal', 'the-washington-post']
     for src in prefs:
@@ -47,7 +59,10 @@ def news():#prefs):
         articles[i]= [newsDict['articles'][i]['title'], newsDict['articles'][i]['description'], newsDict['articles'][i]['content'], newsDict['articles'][i]['urlToImage'], newsDict['articles'][i]['url'], i, i+1]
     return articles
 
+
 def word():
+    '''Extracts data from dictionary api'''
+
     URL = 'https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=' + wordKey
     x = urllib.request.urlopen(URL)
     str = x.read()
@@ -63,7 +78,10 @@ def word():
     x = random.randint(1, len(words)) - 1
     return words[x], defs[x]
 
+
 def number():
+    '''Extracts date fact from numbers API'''
+
     now = datetime.datetime.now()
     month = now.month
     day = now.day
@@ -75,7 +93,10 @@ def number():
 
     return s
 
+
 def dog():
+    '''Extracts dog of the day from Dog API'''
+
     url = "https://random.dog/woof.json"
     s = urllib.request.urlopen(url)
     s = s.read()
@@ -87,6 +108,7 @@ def dog():
     return dogPic
 
 def dogIm():
+    '''Takes dog of the day and makes into proper file extension'''
     im = dog()
     print(im)
     if im[-3:] == 'jpg' or im[-3:] == "JPG":
@@ -94,7 +116,10 @@ def dogIm():
     else:
         dogIm()
 
+
 def cat():
+    '''Extracts cat of the day from Cat API'''
+
     url = "https://aws.random.cat/meow"
     s = urllib.request.urlopen(url)
     s = s.read()
@@ -106,6 +131,7 @@ def cat():
     return catPic
 
 def catIm():
+    '''Takes cat of the day and makes into proper file extension'''
     im = cat()
     print (im)
     if im[-3:] == 'jpg' or im[-3:] == "JPG":

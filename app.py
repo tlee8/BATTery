@@ -1,3 +1,10 @@
+#BATTery
+#Thomas Lee (PM)
+#Britni Canale
+#Ahnaf Kazi
+#Tim Marder
+#p06
+
 import json
 import urllib
 import random
