@@ -49,10 +49,11 @@ print(dogVid,catVid)
 
 #===============================ROOT ROUTE======================================
 
+'''
+Root route, immediately redirects to login page; users must be logged in to use
+'''
 @app.route("/")
 def hello():
-    ''' Root route, immediately redirects to login page; users must be logged in to use
-    '''
     if session.get('username'):
         return redirect(url_for("home"))
     else:
@@ -62,24 +63,26 @@ def hello():
 
 #=============================AUTHORIZATION=====================================
 
+'''
+Allows user to login
+
+Users must log in to access website
+If a user does not have an account, they may sign up for one
+'''
 @app.route("/login", methods=["POST", "GET"])
 def login():
-    ''' Allows user to login
-
-    Users must log in to access website
-    If a user does not have an account, they may sign up for one
-    '''
     return render_template("login.html")
 
 
+'''
+Authorizes users' login information
+
+Checks if their profile exists in database
+Flashes error if does not exist, redirect to login
+Flashes success message if exists, redirect to home, adds user to session
+'''
 @app.route("/auth", methods = ["POST"])
 def auth():
-    ''' Authorizes users' login information
-
-    Checks if their profile exists in database
-    Flashes error if does not exist, redirect to login
-    Flashes success message if exists, redirect to home, adds user to session
-    '''
     if  dataaccess.loginuser(request.form['username'], request.form['password']):
         session['username'] = request.form['username']
         flash("Welcome " + session['username'] + "! You have successfully logged in.")
@@ -95,15 +98,16 @@ def register():
     return render_template("register.html")
 
 
+'''
+Authorizes users' registration information
+
+Checks if passwords match or username is already taken; flashes appropriate
+messages and redirects back to register if so.
+Creates account and adds user information to database if okay, redirect to
+login.
+'''
 @app.route("/regauth", methods = ["POST"])
 def regauth():
-    '''Authorizes users' registration information
-
-    Checks if passwords match or username is already taken; flashes appropriate
-    messages and redirects back to register if so.
-    Creates account and adds user information to database if okay, redirect to
-    login.
-    '''
     if not request.form['password'] == request.form['password2']:
         flash("Your passwords do not match")
         return redirect(url_for("register"))
@@ -114,10 +118,11 @@ def regauth():
     return redirect(url_for("register"))
 
 
-
+'''
+Removes user from session, redirects to login
+'''
 @app.route("/logout", methods=["POST", "GET"])
 def logout():
-    '''Removes user from session, redirects to login'''
     try:
         session.pop('username')
         flash("You have successfully logged out")
@@ -130,33 +135,37 @@ def logout():
 
 #==============================VIEWING INFO=====================================
 
+
+'''
+Displays information from all APIs to logged in users
+
+dailies = dataaccess.getPrefs(session.get('username'))[1]
+if "Weather" in dailies:
+    weather = apeye.weather()["currently"]["summary"]
+    temperature = apeye.weather()["currently"]["temperature"]
+if "Dog" in dailies:
+    dogPic = apeye.dogIm()
+if "Cat" in dailies:
+    catPic = apeye.catIm()
+if "Word" in dailies:
+    words, defs = apeye.word()
+    x = random.randint(1, len(words)) - 1
+    word = words[x]
+    definition = defs[x]
+if "Date" in dailies:
+    s = apeye.number()
+'''
 @app.route("/home", methods=["POST", "GET"])
 def home():
     ''' Displays information from all APIs to logged in users
     '''
     #sources = dataaccess.getPrefs(session.get('username'))[0]
     #news = apeye.news(sources)
-
-    '''dailies = dataaccess.getPrefs(session.get('username'))[1]
-    if "Weather" in dailies:
-        weather = apeye.weather()["currently"]["summary"]
-        temperature = apeye.weather()["currently"]["temperature"]
-    if "Dog" in dailies:
-        dogPic = apeye.dogIm()
-    if "Cat" in dailies:
-        catPic = apeye.catIm()
-    if "Word" in dailies:
-        words, defs = apeye.word()
-        x = random.randint(1, len(words)) - 1
-        word = words[x]
-        definition = defs[x]
-    if "Date" in dailies:
-        s = apeye.number()
-
-    '''
     return render_template("home.html", title = "DAILY BATT", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature, dateFact = dateFact, dogPic = dogPic, catPic = catPic, dogVid = dogVid, catVid = catVid)
 
-'''Currently not functional
+'''
+Currently not functional
+
 @app.route("/myarticles", methods = ["POST", "GET"])
 def myarticles():
     \'\'\'Displays any articles the user has shared, had shared with them,
@@ -165,7 +174,9 @@ def myarticles():
     return render_template("myarticles.html", myarticles = True, title = "My Articles", user = session.get('username'), articles = articles, word = word, definition = definition, weather = weather, temperature = temperature)
 '''
 
-'''Currently not functional
+'''
+Currently not functional
+
 @app.route("/popularposts")
 def popposts():
     \'\'\'Displays articles with the most comments, shares, and likes
@@ -190,7 +201,9 @@ def article():
 
 #============================USER PREFERENCES===================================
 
-'''Currently not functional
+'''
+Currently not functional
+
 @app.route("/preferences")
 def preferences():
     \'\'\'Displays page allowing users to choose their preferences
@@ -205,7 +218,9 @@ def preferences():
     return render_template("preferences.html", pref = True) #, sources = sources, dailies = dailies )
 '''
 
-'''Currently not functional
+'''
+Currently not functional
+
 @app.route("/updatepref", methods = ["POST"])
 def updatepref():
     \'\'\'Adds information from users selected preferences to database\'\'\'

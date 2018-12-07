@@ -5,8 +5,9 @@
 #Tim Marder
 #p06
 
-'''This script creates a database with the necessary tables for data to be
-stored'''
+'''
+This script creates a database with the necessary tables for data to be stored
+'''
 
 import sqlite3 #imports sqlite
 

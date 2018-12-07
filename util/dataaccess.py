@@ -8,17 +8,19 @@
 '''This script extracts data from database for use in application'''
 
 import sqlite3
+
 from datetime import date
 from util import db_builder
 
 db_builder.main()
 
-def registeruser(user, pwd):
-    '''Takes user and password input from register pages
+'''
+Takes user and password input from register pages
 
-    Checks if user already exists
-    If not, adds new user to database
-    '''
+Checks if user already exists
+If not, adds new user to database
+'''
+def registeruser(user, pwd):
     DB_FILE="data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -33,8 +35,10 @@ def registeruser(user, pwd):
     db.close()  #close database
     return True
 
+'''
+Checks login credentials from database
+'''
 def loginuser(user, pwd):
-    '''Checks login credentials from database'''
     DB_FILE="data/BATT.db"
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -44,7 +48,8 @@ def loginuser(user, pwd):
     rows = c.fetchone()
     return rows
 
-''' These are not currently being implemented
+'''
+These are not currently being implemented
 
 def saveday(cat, dog, word, defi, weather, temperature):
         date = date.today().isoformat()
@@ -78,7 +83,8 @@ def update():
 '''
 
 
-''' Will be implemented when database is functional
+'''
+Will be implemented when database is functional
 
 def setPref(user,text,types):
     \'\'\'Sets preferences of user using single inputs, adds to database
@@ -95,7 +101,8 @@ def setPref(user,text,types):
 '''
 
 
-''' Will be implemented when database is functional
+'''
+Will be implemented when database is functional
 
 def setPref(user, sources, dailies):
     \'\'\'Sets preferences of user using lists, calls other function, adds to
@@ -116,7 +123,8 @@ def setPref(user, sources, dailies):
     return True
 '''
 
-'''Will be implemented when database is functional
+'''
+Will be implemented when database is functional
 
 def getPrefs(user):
     \'\'\'Gets preferences of specific user
